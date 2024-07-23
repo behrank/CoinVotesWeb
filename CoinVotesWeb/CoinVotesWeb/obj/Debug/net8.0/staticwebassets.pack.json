@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CoinVotesWeb.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CoinVotesWeb.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CoinVotesWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CoinVotesWeb.props",
+      "PackagePath": "build\\CoinVotesWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CoinVotesWeb.props",
+      "PackagePath": "buildMultiTargeting\\CoinVotesWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CoinVotesWeb.props",
+      "PackagePath": "buildTransitive\\CoinVotesWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
