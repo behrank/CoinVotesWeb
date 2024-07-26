@@ -8,26 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\behra\\.nuget\\packages\\": {}
+    "/Users/behran/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj",
+      "projectUniqueName": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj",
       "projectName": "CoinVotesWeb",
-      "projectPath": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj",
-      "packagesPath": "C:\\Users\\behra\\.nuget\\packages\\",
-      "outputPath": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\",
+      "projectPath": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj",
+      "packagesPath": "/Users/behran/.nuget/packages/",
+      "outputPath": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\behra\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/behran/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -69,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

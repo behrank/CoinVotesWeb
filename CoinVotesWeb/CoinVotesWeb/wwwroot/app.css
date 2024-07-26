@@ -1,7 +1,18 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 body {
     min-height: 75rem;
-    padding-top: 4.5rem;
+    padding-top: 0rem;
+}
+
+.jumbotron-dark {
+    background-color: #16171C;
+}
+
+.nav-dark {
+    background-color: black!important;
+}
+.navbar-brand img {
+    vertical-align: text-top;
 }
