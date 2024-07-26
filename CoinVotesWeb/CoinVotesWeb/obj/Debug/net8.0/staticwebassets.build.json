@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ICkjT0jALuh2JKOeHaLvFNTP+mEm9gDSdbX2zVOq6ys=",
+  "Hash": "qXpcYaf5UBDUS1yJ9n9LwdfZotU9l4sNZDP0Ikebe5A=",
   "Source": "CoinVotesWeb",
   "BasePath": "_content/CoinVotesWeb",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.png"
+    },
+    {
+      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/2P00G3U88XmDckPq2qhMqAx3qI.png",
+      "SourceId": "CoinVotesWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "BasePath": "_content/CoinVotesWeb",
+      "RelativePath": "img/2P00G3U88XmDckPq2qhMqAx3qI.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/2P00G3U88XmDckPq2qhMqAx3qI.png"
     },
     {
       "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/appstore.svg",
