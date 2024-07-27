@@ -9,6 +9,17 @@ body {
 .jumbotron-dark {
     background-color: #16171C;
 }
+.navbar a {
+    color:#fff;
+}
+
+.rounded-big {
+  border-radius: 20px;
+}
+
+.jumbotron-dark {
+    color:#fff;
+}
 
 .nav-dark {
     background-color: black!important;
