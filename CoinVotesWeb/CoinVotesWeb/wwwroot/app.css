@@ -1,5 +1,5 @@
 html, body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 body {
     min-height: 75rem;
@@ -21,11 +21,32 @@ body {
     color:#fff;
 }
 
+.bar {
+  height: 4px;
+  width: 85px;
+  background: #2f5bea;
+  margin: 20px auto 20px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
 .nav-dark {
     background-color: black!important;
 }
 .navbar-brand img {
     vertical-align: text-top;
+}
+
+.accordion-button:not(.collapsed), .accordion-button .collapsed {
+  background-color: #f4f4f4;
+}
+
+.accordion-body {
+  background-color: #f4f4f4;
+}
+
+.accordion-button {
+  background-color: #f4f4f4;
 }
 
 /* Featurettes
@@ -41,6 +62,15 @@ body {
   letter-spacing: -.05rem;
 }
 
+tbody tr {
+  height: 45px;
+}
+
+tbody tr td .progress {
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -50,10 +80,6 @@ body {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
   }
 }
 
