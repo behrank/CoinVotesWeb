@@ -12,7 +12,9 @@ body {
 .navbar a {
     color:#fff;
 }
-
+.navbar a:hover {
+  color:#fff;
+}
 .rounded-big {
   border-radius: 20px;
 }
@@ -48,6 +50,10 @@ body {
 .accordion-button {
   background-color: #f4f4f4;
 }
+
+a.navbar-brand:hover {background-color: #f00 !important;} 
+
+
 
 /* Featurettes
 ------------------------- */
