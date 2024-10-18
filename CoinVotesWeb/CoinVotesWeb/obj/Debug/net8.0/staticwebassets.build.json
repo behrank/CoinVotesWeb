@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pxYs5fyQSclgpu8h0743UAoYhKMf309SnFv/jNRCFFo=",
+  "Hash": "vu3NdTkrkkZ/QSws7tnAL+TDIocq034y5zqbnZCnuzE=",
   "Source": "CoinVotesWeb",
   "BasePath": "_content/CoinVotesWeb",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "CoinVotesWeb/wwwroot",
+      "Name": "CoinVotesWeb\\wwwroot",
       "Source": "CoinVotesWeb",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/Debug/net8.0/scopedcss/bundle/CoinVotesWeb.styles.css",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CoinVotesWeb.styles.css",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/Debug/net8.0/scopedcss/bundle/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "CoinVotesWeb.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/Debug/net8.0/scopedcss/bundle/CoinVotesWeb.styles.css"
+      "OriginalItemSpec": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CoinVotesWeb.styles.css"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/Debug/net8.0/scopedcss/projectbundle/CoinVotesWeb.bundle.scp.css",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CoinVotesWeb.bundle.scp.css",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/Debug/net8.0/scopedcss/projectbundle/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "CoinVotesWeb.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/Debug/net8.0/scopedcss/projectbundle/CoinVotesWeb.bundle.scp.css"
+      "OriginalItemSpec": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CoinVotesWeb.bundle.scp.css"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/app.css",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\app.css",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/app.css"
+      "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/bootstrap/bootstrap.min.css",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/bootstrap/bootstrap.min.css"
+      "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/bootstrap/bootstrap.min.css.map",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -109,13 +109,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/bootstrap/bootstrap.min.css.map"
+      "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/favicon.png",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\favicon.png",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.png"
+      "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/2P00G3U88XmDckPq2qhMqAx3qI.png",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\2P00G3U88XmDckPq2qhMqAx3qI.png",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/2P00G3U88XmDckPq2qhMqAx3qI.png",
       "AssetKind": "All",
@@ -147,13 +147,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/2P00G3U88XmDckPq2qhMqAx3qI.png"
+      "OriginalItemSpec": "wwwroot\\img\\2P00G3U88XmDckPq2qhMqAx3qI.png"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/appstore.svg",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\appstore.svg",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/appstore.svg",
       "AssetKind": "All",
@@ -166,13 +166,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/appstore.svg"
+      "OriginalItemSpec": "wwwroot\\img\\appstore.svg"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/featured.svg",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\featured.svg",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/featured.svg",
       "AssetKind": "All",
@@ -185,13 +185,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/featured.svg"
+      "OriginalItemSpec": "wwwroot\\img\\featured.svg"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/GetItOnGooglePlay.png",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\GetItOnGooglePlay.png",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/GetItOnGooglePlay.png",
       "AssetKind": "All",
@@ -204,13 +204,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/GetItOnGooglePlay.png"
+      "OriginalItemSpec": "wwwroot\\img\\GetItOnGooglePlay.png"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/hCQOTsFLetm0lTBK4p7lGfNKlY.webp",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\hCQOTsFLetm0lTBK4p7lGfNKlY.webp",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/hCQOTsFLetm0lTBK4p7lGfNKlY.webp",
       "AssetKind": "All",
@@ -223,13 +223,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/hCQOTsFLetm0lTBK4p7lGfNKlY.webp"
+      "OriginalItemSpec": "wwwroot\\img\\hCQOTsFLetm0lTBK4p7lGfNKlY.webp"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/Oai9LLzK4bI9CICB36Iijzr4.png",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\Oai9LLzK4bI9CICB36Iijzr4.png",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/Oai9LLzK4bI9CICB36Iijzr4.png",
       "AssetKind": "All",
@@ -242,13 +242,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/Oai9LLzK4bI9CICB36Iijzr4.png"
+      "OriginalItemSpec": "wwwroot\\img\\Oai9LLzK4bI9CICB36Iijzr4.png"
     },
     {
-      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/rYuAkmYKVNvcITuQyT3ShSeFhes.png",
+      "Identity": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\rYuAkmYKVNvcITuQyT3ShSeFhes.png",
       "SourceId": "CoinVotesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "ContentRoot": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\",
       "BasePath": "_content/CoinVotesWeb",
       "RelativePath": "img/rYuAkmYKVNvcITuQyT3ShSeFhes.png",
       "AssetKind": "All",
@@ -261,7 +261,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/img/rYuAkmYKVNvcITuQyT3ShSeFhes.png"
+      "OriginalItemSpec": "wwwroot\\img\\rYuAkmYKVNvcITuQyT3ShSeFhes.png"
     }
   ]
 }

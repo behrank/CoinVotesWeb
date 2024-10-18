@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj": {}
+    "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj": {}
   },
   "projects": {
-    "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj": {
+    "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj",
+        "projectUniqueName": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj",
         "projectName": "CoinVotesWeb",
-        "projectPath": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj",
-        "packagesPath": "/Users/behran/.nuget/packages/",
-        "outputPath": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/obj/",
+        "projectPath": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj",
+        "packagesPath": "C:\\Users\\behra\\.nuget\\packages\\",
+        "outputPath": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/behran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\behra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
