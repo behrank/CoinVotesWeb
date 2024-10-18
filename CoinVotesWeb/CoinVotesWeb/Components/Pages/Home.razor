@@ -13,7 +13,7 @@
                     Install the app, activate signals for the cryptocurrencies you are interested in, and catch the latest trends. 
                     Participate in hourly polls and share your thoughts with others.
                 </p>
-                <a class="mt-5"  href="https://apps.apple.com/us/app/coininsight/id6476925677" <img src="img/appstore.svg" width="150px"/>
+                <a class="mt-5"  href="https://apps.apple.com/us/app/coininsight/id6476925677"> <img src="img/appstore.svg" width="150px"/>
                 </a>
             </div>
             <div class="col-md-5">
@@ -148,7 +148,7 @@
     <div class="bar"></div>
 </div>
 <div class="mx-auto mb-5" style="width: 200px;" id="downloads">
-    <a href="https://apps.apple.com/us/app/coininsight/id6476925677" <img src="img/appstore.svg" width="200px"/></a>
+    <a href="https://apps.apple.com/us/app/coininsight/id6476925677"> <img src="img/appstore.svg" width="200px"/></a>
 </div>
 <script>
     const apiUrl = 'https://api.coininsight.app/Signal/lastSignals';
@@ -166,7 +166,13 @@
             } else if (probabilityPercent > 67) {
                 ratioCls = "progress-bar bg-success";
             }
-
+            //EventTime = x.EventTime,
+            //IsUp = x.IsUp,
+            //LastPrice = x.LastPrice,
+            //SymbolCode = x.SymbolCode,
+            //Volume = x.LastVolume,
+            //VolumeChange = x.VolumeChange,
+            //TopPriceChange = x.TopPriceChange,
             const eventTime = new Date(signal.eventTime);
             const eventHour = eventTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 
