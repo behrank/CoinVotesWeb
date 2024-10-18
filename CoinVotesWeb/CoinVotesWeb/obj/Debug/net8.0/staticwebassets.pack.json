@@ -21,8 +21,21 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+<<<<<<< HEAD
       "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\2P00G3U88XmDckPq2qhMqAx3qI.png",
       "PackagePath": "staticwebassets\\img\\2P00G3U88XmDckPq2qhMqAx3qI.png"
+=======
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/files/privacypolicy.pdf",
+      "PackagePath": "staticwebassets/files/privacypolicy.pdf"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/files/termsofservice.pdf",
+      "PackagePath": "staticwebassets/files/termsofservice.pdf"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/2P00G3U88XmDckPq2qhMqAx3qI.png",
+      "PackagePath": "staticwebassets/img/2P00G3U88XmDckPq2qhMqAx3qI.png"
+>>>>>>> origin/master
     },
     {
       "Id": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\wwwroot\\img\\GetItOnGooglePlay.png",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoinVotesWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b286505fc3839aa3aee6357697eeef01d5d63c0e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e4131821c0e5d19370c1c2140a2d0cc0b6a318a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoinVotesWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoinVotesWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
