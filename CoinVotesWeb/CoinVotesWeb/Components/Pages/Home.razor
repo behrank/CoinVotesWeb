@@ -171,29 +171,26 @@
             if (signal.typeId == 1) {
                 const action = signal.isUp ? 'buy' : 'sell';
                 const html = `
-                <tr>
-                    <td><strong>${shortSymbol}</strong></td>
-                    <td>possible ${action} signal</td>
-                    <td><small class="text-body-secondary text-end">${eventHour}</small></td>
-                </tr>`;
+                    <tr>
+                        <td class="align-middle"><strong>${shortSymbol}</strong> possible ${action} signal</td>
+                            <td class="align-middle"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+                    </tr>`;
                 tbody.innerHTML += html;
             } else if (signal.typeId == 2) {
                 const action = signal.isUp ? 'increased' : 'decreased';
                 const html = `
-                <tr>
-                    <td><strong>${shortSymbol}</strong></td>
-                        <td>volume ${action} to ${signal.volume.toFixed(2)} USDT by ${volumeChange}%.</td>
-                    <td><small class="text-body-secondary text-end">${eventHour}</small></td>
-                </tr>`;
+                    <tr>
+                        <td class="align-middle"><strong>${shortSymbol}</strong> volume ${action} to ${signal.volume.toFixed(2)} USDT by ${volumeChange}%.</td>
+                            <td class="align-middle"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+                    </tr>`;
                 tbody.innerHTML += html;
             } else {
                 const action = signal.isUp ? 'increased' : 'decreased';
                 const html = `
-                <tr>
-                    <td><strong>${shortSymbol}</strong></td>
-                        <td>Price ${action} to ${signal.lastPrice.toFixed(2)} USDT by ${signal.topPriceChange}%.</td>
-                    <td><small class="text-body-secondary text-end">${eventHour}</small></td>
-                </tr>`;
+                    <tr>
+                        <td class="align-middle"><strong>${shortSymbol}</strong> Price ${action} to ${signal.lastPrice.toFixed(2)} USDT by ${signal.topPriceChange}%.</td>
+                        <td class="align-middle"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+                    </tr>`;
                 tbody.innerHTML += html;
             }
         });
