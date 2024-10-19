@@ -181,24 +181,27 @@
                 const action = signal.isUp ? 'buy' : 'sell';
                 const html = `
                     <tr>
-                                        <td class="align-middle"><img src="img/${modifiedImgStr}.png" class="img-fluid rounded float-start" alt="..." height="24"><strong>${shortSymbol}</strong> possible ${action} signal</td>
-                            <td class="align-middle"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+                            <td class="align-middle col" style="width:10%"><img src="img/${modifiedImgStr}.png" class="img-fluid float-start" alt="..." height="32" width="32"></td>
+                            <td class="align-middle col"><strong>${shortSymbol}</strong> possible ${action} signal</td>
+                            <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
                     </tr>`;
                 tbody.innerHTML += html;
             } else if (signal.typeId == 2) {
                 const action = signal.isUp ? 'increased' : 'decreased';
                 const html = `
                     <tr>
-                            <td class="align-middle"><img src="img/${modifiedImgStr}.png" class="img-fluid rounded float-start" alt="..." height="24"><strong>${shortSymbol}</strong> volume ${action} to ${signal.volume.toFixed(2)} USDT by ${volumeChange}%.</td>
-                        <td class="align-middle"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+                            <td class="align-middle col" style="width:10%"><img src="img/${modifiedImgStr}.png" class="img-fluid rounded-circle float-start" alt="..." height="32" width="32"></td>
+                            <td class="align-middle col"><strong>${shortSymbol}</strong> volume ${action} to ${signal.volume.toFixed(2)} USDT by ${volumeChange}%.</td>
+                        <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
                     </tr>`;
                 tbody.innerHTML += html;
             } else {
                 const action = signal.isUp ? 'increased' : 'decreased';
                 const html = `
                     <tr>
-                            <td class="align-middle"><img src="img/${modifiedImgStr}.png" class="img-fluid rounded float-start" alt="..." height="24"><strong>${shortSymbol}</strong> Price ${action} to ${signal.lastPrice.toFixed(2)} USDT by ${signal.topPriceChange}%.</td>
-                        <td class="align-middle"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+                            <td class="align-middle col" style="width:10%"><img src="img/${modifiedImgStr}.png" class="img-fluid float-start" alt="..." height="32" width="32"></td>
+                            <td class="align-middle col"><strong>${shortSymbol}</strong> Price ${action} to ${signal.lastPrice.toFixed(2)} USDT by ${signal.topPriceChange}%.</td>
+                        <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
                     </tr>`;
                 tbody.innerHTML += html;
             }
