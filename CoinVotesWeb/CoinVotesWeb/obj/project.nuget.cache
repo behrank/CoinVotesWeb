@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "viRJ3mQbRqbv4vg02xa91TgY7RuLzWzRL67IJsPUkWbGB7CnLDvUMJUDjAwS7LVtwpyxILwO7VvdJpkrflvYsw==",
+  "dgSpecHash": "nxAD+xqCL9k=",
   "success": true,
-  "projectFilePath": "E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb.csproj",
+  "projectFilePath": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\development\\CoinVotesWeb\\CoinVotesWeb\\CoinVotesWeb\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
