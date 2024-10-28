@@ -1,0 +1,11 @@
+# robots.txt file for CoinInsight
+
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /user-data/
+Disallow: /settings/
+Disallow: /private-api/
+
+# Sitemap
+# Sitemap: https://coininsight.app/sitemap.xml
