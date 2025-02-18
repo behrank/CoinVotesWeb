@@ -81,7 +81,13 @@
                     x: {
                         type: 'time',
                         time: {
-                            unit: interval === '1d' ? 'day' : 'minute'
+                            unit: interval === '1d' ? 'day' : 'minute',
+                            tooltipFormat: 'HH:mm', // Tooltip format to 24-hour time
+                            displayFormats: {
+                                minute: 'HH:mm', // Display minute in 24-hour format
+                                hour: 'HH:mm',   // Display hour in 24-hour format
+                                day: 'MMM dd'    // Display day format for daily intervals
+                            }
                         },
                         title: {
                             display: false,
@@ -91,7 +97,7 @@
                     },
                     y: {
                         title: {
-                            display: true,
+                            display: false,
                             text: 'BTC Price (USDT)'
                         },
                         grid: {
