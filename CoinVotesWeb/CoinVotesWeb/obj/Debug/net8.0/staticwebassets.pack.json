@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets/img/ada.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/algo.png",
+      "PackagePath": "staticwebassets/img/algo.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/appstore.svg",
       "PackagePath": "staticwebassets/img/appstore.svg"
     },
@@ -125,6 +129,10 @@
       "PackagePath": "staticwebassets/img/dot.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/ena.png",
+      "PackagePath": "staticwebassets/img/ena.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/etc.png",
       "PackagePath": "staticwebassets/img/etc.png"
     },
@@ -135,6 +143,10 @@
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/featured.svg",
       "PackagePath": "staticwebassets/img/featured.svg"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/fet.png",
+      "PackagePath": "staticwebassets/img/fet.png"
     },
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/fil.png",
@@ -225,6 +237,10 @@
       "PackagePath": "staticwebassets/img/rYuAkmYKVNvcITuQyT3ShSeFhes.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/render.png",
+      "PackagePath": "staticwebassets/img/render.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/rndr.png",
       "PackagePath": "staticwebassets/img/rndr.png"
     },
@@ -239,6 +255,10 @@
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/strk.png",
       "PackagePath": "staticwebassets/img/strk.png"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/stx.png",
+      "PackagePath": "staticwebassets/img/stx.png"
     },
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/sui.png",

@@ -22,6 +22,9 @@ body {
 .jumbotron-dark {
     color:#fff;
 }
+.nav-link:focus, .nav-link:hover, .navbar-brand:focus, .navbar-brand:hover {
+    color:#fff;    
+}
 
 .bar {
   height: 4px;
