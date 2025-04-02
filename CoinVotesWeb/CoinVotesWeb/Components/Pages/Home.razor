@@ -166,54 +166,33 @@
             const shortSymbol = signal.symbolCode.slice(0, -4);
             const probabilityPercent = (signal.probability * 100).toFixed(2);
             const action = signal.isUp ? 'buy' : 'sell';
-
-            let ratioCls = "progress-bar bg-danger";
-            if (probabilityPercent > 33 && probabilityPercent < 67) {
-                ratioCls = "progress-bar bg-warning";
-            } else if (probabilityPercent > 67) {
-                ratioCls = "progress-bar bg-success";
-            }
-
+            
             const eventTime = new Date(signal.eventTime);
             const eventHour = eventTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
             let modifiedImgStr = shortSymbol.toLowerCase();
-            if (signal.typeId == 1) {
-                const action = signal.isUp ? 'buy' : 'sell';
-                const html = `
-                    <tr>
-                            <td class="align-middle col" style="width:10%"><img src="img/${modifiedImgStr}.png" class="img-fluid float-start" alt="..." height="32" width="32"></td>
-                            <td class="align-middle col"><strong>${shortSymbol}</strong> possible ${action} signal</td>
-                            <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
-                    </tr>`;
-                tbody.innerHTML += html;
-            } else if (signal.typeId == 2) {
-                const action = signal.isUp ? 'increased' : 'decreased';
-                const html = `
-                    <tr>
-                            <td class="align-middle col" style="width:10%"><img src="img/${modifiedImgStr}.png" class="img-fluid rounded-circle float-start" alt="..." height="32" width="32"></td>
-                            <td class="align-middle col"><strong>${shortSymbol}</strong> volume ${action} to ${signal.volume.toFixed(2)} USDT by ${volumeChange}%.</td>
-                        <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
-                    </tr>`;
-                tbody.innerHTML += html;
-            } else {
-                const action = signal.isUp ? 'increased' : 'decreased';
-                const html = `
-                    <tr>
-                            <td class="align-middle col" style="width:10%"><img src="img/${modifiedImgStr}.png" class="img-fluid float-start" alt="..." height="32" width="32"></td>
-                            <td class="align-middle col"><strong>${shortSymbol}</strong> Price ${action} to ${signal.lastPrice.toFixed(2)} USDT by ${signal.topPriceChange}%.</td>
-                        <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
-                    </tr>`;
-                tbody.innerHTML += html;
-            }
+
+            const html = `
+            <tr>
+               <td class="align-middle col" style="width:10%">
+                    <img src="img/${modifiedImgStr}.png" class="img-fluid float-start" alt="..." height="32" width="32">
+                </td>
+               <td class="align-middle col">${signal.description}</td>
+               <td class="align-middle col"><p class="m-0"><small class="text-body-secondary">$${signal.lastPrice.toFixed(4)}</small></p></td>
+               <td class="align-middle col"><p class="text-end m-0"><small class="text-body-secondary">${eventHour}</small></p></td>
+            </tr>`;
+            tbody.innerHTML += html;
         });
     }
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            generateHTML(data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+    function getLastest() {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                generateHTML(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+    getLastest();
 </script>
