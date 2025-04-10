@@ -133,6 +133,10 @@
       "PackagePath": "staticwebassets/img/ena.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/eos.png",
+      "PackagePath": "staticwebassets/img/eos.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/etc.png",
       "PackagePath": "staticwebassets/img/etc.png"
     },
@@ -253,6 +257,10 @@
       "PackagePath": "staticwebassets/img/sol.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/sonic.png",
+      "PackagePath": "staticwebassets/img/sonic.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/strk.png",
       "PackagePath": "staticwebassets/img/strk.png"
     },
@@ -275,6 +283,10 @@
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/ton.png",
       "PackagePath": "staticwebassets/img/ton.png"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/trump.png",
+      "PackagePath": "staticwebassets/img/trump.png"
     },
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/trx.png",
