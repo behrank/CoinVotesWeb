@@ -165,6 +165,10 @@
       "PackagePath": "staticwebassets/img/ftm.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/googleplay.png",
+      "PackagePath": "staticwebassets/img/googleplay.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/hCQOTsFLetm0lTBK4p7lGfNKlY.webp",
       "PackagePath": "staticwebassets/img/hCQOTsFLetm0lTBK4p7lGfNKlY.webp"
     },

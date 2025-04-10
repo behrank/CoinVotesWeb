@@ -9,15 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6507bea2-a50b-4474-8aaf-8599cae9130e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Privacy.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/img/googleplay.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Home.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.staticwebassets.runtime.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" afterDir="false" />
@@ -78,7 +77,7 @@
     &quot;.NET Launch Settings Profile.CoinVotesWeb: http.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -143,6 +142,7 @@
       <workItem from="1743625885908" duration="69000" />
       <workItem from="1744280579028" duration="661000" />
       <workItem from="1744282000614" duration="301000" />
+      <workItem from="1744285447932" duration="753000" />
     </task>
     <task id="LOCAL-00001" summary="Files added">
       <option name="closed" value="true" />

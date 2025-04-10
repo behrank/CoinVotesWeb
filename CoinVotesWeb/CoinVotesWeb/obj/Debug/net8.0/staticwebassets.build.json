@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M5nt20lyziaBdJ8LvQVRHh05wvgXFzRsZQ72hffmde4=",
+  "Hash": "DYxRg6b5kIrLnDjsCOzYJNUZTrf4urZBYM1lXqIbIc4=",
   "Source": "CoinVotesWeb",
   "BasePath": "_content/CoinVotesWeb",
   "Mode": "Default",
@@ -794,6 +794,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/GetItOnGooglePlay.png"
+    },
+    {
+      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/googleplay.png",
+      "SourceId": "CoinVotesWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "BasePath": "_content/CoinVotesWeb",
+      "RelativePath": "img/googleplay.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/googleplay.png"
     },
     {
       "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/hbar.png",
