@@ -36,8 +36,4 @@ public partial class User
     public virtual ICollection<Device> Devices { get; set; } = new List<Device>();
 
     public virtual ICollection<UpDownVote> UpDownVotes { get; set; } = new List<UpDownVote>();
-
-    public DateTime CreateDate { get; set; }
-
-    public string DeviceType { get; set; }
 }

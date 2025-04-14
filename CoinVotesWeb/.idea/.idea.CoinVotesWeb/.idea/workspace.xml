@@ -9,27 +9,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6507bea2-a50b-4474-8aaf-8599cae9130e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/DevicesApiController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CoinVotesWeb/Models/Response/UserViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/App.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Users.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Users.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/UsersApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/UsersApiController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.staticwebassets.runtime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/CoinVotesWeb.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/CoinVotesWeb.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/ref/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/ref/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/refint/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/refint/CoinVotesWeb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.pack.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.pack.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets/msbuild.CoinVotesWeb.Microsoft.AspNetCore.StaticWebAssets.props" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets/msbuild.CoinVotesWeb.Microsoft.AspNetCore.StaticWebAssets.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/js/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/js/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +149,7 @@
       <workItem from="1744282000614" duration="301000" />
       <workItem from="1744285447932" duration="753000" />
       <workItem from="1744616983239" duration="7571000" />
+      <workItem from="1744632229259" duration="5089000" />
     </task>
     <task id="LOCAL-00001" summary="Files added">
       <option name="closed" value="true" />
@@ -166,6 +167,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Files added" />

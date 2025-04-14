@@ -8,20 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoinVotesWeb.Services
 {
-    public class UserService : BaseService<User>, IUserService
+    public class UserService(AppDbContext context) : BaseService<User>(context), IUserService
     {
         private readonly List<User> _users;
-
-        public UserService(AppDbContext context) : base(context)
-        {
-            // Initialize with sample data
-            _users = new List<User>
-            {
-                new User { ID = 1, Email = "user1@example.com", CreateDate = DateTime.Now.AddDays(-5), DeviceType = "Mobile" },
-                new User { ID = 2, Email = "user2@example.com", CreateDate = DateTime.Now.AddDays(-3), DeviceType = "Desktop" },
-                new User { ID = 3, Email = "user3@example.com", CreateDate = DateTime.Now.AddDays(-1), DeviceType = "Tablet" }
-            };
-        }
 
         public async Task<User> GetByEmailAsync(string email)
         {

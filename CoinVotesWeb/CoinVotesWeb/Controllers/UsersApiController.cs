@@ -3,29 +3,29 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoinVotesWeb.Models;
+using CoinVotesWeb.Models.Response;
 using CoinVotesWeb.Services;
 
 namespace CoinVotesWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersApiController : ControllerBase
+    public class UsersApiController(IUserService userService) : ControllerBase
     {
-        private readonly IUserService _userService;
-
-        public UsersApiController(IUserService userService)
-        {
-            _userService = userService;
-        }
-
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 50)
+        public async Task<ActionResult<IEnumerable<UserViewModel>>> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 50)
         {
             try
             {
-                var result = await _userService.GetPagedListAsync(page, pageSize);
+                var result = await userService.GetPagedListAsync(page, pageSize);
                 return Ok(new { 
-                    Items = result.Items, 
+                    Items = result.Items.Select(x => new UserViewModel
+                    {
+                        Id = x.ID,
+                        Email = x.Email,
+                        CreatedAt = x.CreatedAt,
+                        Device = x.Email.Contains("anonymous") ? "iOS" : "Android",
+                    }).ToList(), 
                     TotalCount = result.TotalCount,
                     CurrentPage = page,
                     PageSize = pageSize,
@@ -43,7 +43,7 @@ namespace CoinVotesWeb.Controllers
         {
             try
             {
-                var user = await _userService.GetByIdAsync(id);
+                var user = await userService.GetByIdAsync(id);
                 if (user == null)
                 {
                     return NotFound();

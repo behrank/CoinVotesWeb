@@ -97,3 +97,7 @@ build_metadata.AdditionalFiles.CssScope = b-2nwsb7kn06
 [/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EYXNoYm9hcmQvRGFzaGJvYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-nkc96dnqgw
+
+[/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

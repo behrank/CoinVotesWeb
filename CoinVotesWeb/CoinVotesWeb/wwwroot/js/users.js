@@ -1,7 +1,7 @@
 // Function to fetch users with pagination
 async function fetchUsers(page = 1, pageSize = 10) {
     try {
-        const response = await fetch(`/api/UsersApi/GetUsers?page=${page}&pageSize=${pageSize}`);
+        const response = await fetch(`/api/UsersApi?page=${page}&pageSize=${pageSize}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -36,38 +36,51 @@ function renderUsers(users, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    const table = document.createElement('table');
-    table.className = 'table table-dark table-hover';
-    
-    // Create table header
-    const thead = document.createElement('thead');
-    thead.innerHTML = `
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Create Date</th>
-            <th>Device Type</th>
-        </tr>
-    `;
-    table.appendChild(thead);
-
-    // Create table body
-    const tbody = document.createElement('tbody');
-    users.forEach(user => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${user.id}</td>
-            <td>${user.email}</td>
-            <td>${new Date(user.createDate).toLocaleString()}</td>
-            <td>${user.deviceType}</td>
+    if (!users || users.length === 0) {
+        container.innerHTML = `
+            <tr>
+                <td colspan="3" class="text-center">No users found</td>
+            </tr>
         `;
-        tbody.appendChild(tr);
-    });
-    table.appendChild(tbody);
+        return;
+    }
 
-    // Clear container and append table
-    container.innerHTML = '';
-    container.appendChild(table);
+    let html = '';
+    users.forEach(user => {
+        // Fix date formatting for ISO 8601 format
+        let createDate = 'N/A';
+        if (user.createdAt) {
+            try {
+                // Parse ISO 8601 date string
+                const date = new Date(user.createdAt);
+                if (!isNaN(date.getTime())) {
+                    // Format the date in a more readable way
+                    createDate = date.toLocaleString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                    });
+                }
+            } catch (e) {
+                console.error('Error parsing date:', e);
+            }
+        }
+        
+        html += `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.email}</td>
+                <td>${createDate}</td>
+                <td>${user.device}</td>
+            </tr>
+        `;
+    });
+    
+    container.innerHTML = html;
 }
 
 // Function to render pagination controls
@@ -75,72 +88,136 @@ function renderPagination(currentPage, totalPages, containerId, onPageChange) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    const pagination = document.createElement('nav');
-    pagination.setAttribute('aria-label', 'Page navigation');
+    if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+    }
+
+    let html = `
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-dark">
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link bg-dark text-light border-secondary" href="#" aria-label="Previous" ${currentPage === 1 ? 'tabindex="-1"' : ''}>
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+    `;
+
+    // Calculate range of page numbers to show
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, startPage + 4);
     
-    const ul = document.createElement('ul');
-    ul.className = 'pagination justify-content-center';
+    // Adjust start if we're near the end
+    if (endPage - startPage < 4) {
+        startPage = Math.max(1, endPage - 4);
+    }
+
+    // First page
+    if (startPage > 1) {
+        html += `
+            <li class="page-item">
+                <a class="page-link bg-dark text-light border-secondary" href="#" data-page="1">1</a>
+            </li>
+        `;
+        if (startPage > 2) {
+            html += `
+                <li class="page-item disabled">
+                    <span class="page-link bg-dark text-light border-secondary">...</span>
+                </li>
+            `;
+        }
+    }
+
+    // Page numbers
+    for (let i = startPage; i <= endPage; i++) {
+        html += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link ${i === currentPage ? 'bg-primary border-primary' : 'bg-dark text-light border-secondary'}" href="#" data-page="${i}">${i}</a>
+            </li>
+        `;
+    }
+
+    // Last page
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+            html += `
+                <li class="page-item disabled">
+                    <span class="page-link bg-dark text-light border-secondary">...</span>
+                </li>
+            `;
+        }
+        html += `
+            <li class="page-item">
+                <a class="page-link bg-dark text-light border-secondary" href="#" data-page="${totalPages}">${totalPages}</a>
+            </li>
+        `;
+    }
+
+    html += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link bg-dark text-light border-secondary" href="#" aria-label="Next" ${currentPage === totalPages ? 'tabindex="-1"' : ''}>
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    `;
+
+    container.innerHTML = html;
+
+    // Add event listeners
+    const pageLinks = container.querySelectorAll('.page-link[data-page]');
+    pageLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = parseInt(e.target.getAttribute('data-page'));
+            onPageChange(page);
+        });
+    });
 
     // Previous button
-    const prevLi = document.createElement('li');
-    prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    prevLi.innerHTML = `
-        <a class="page-link" href="#" aria-label="Previous" ${currentPage === 1 ? 'tabindex="-1"' : ''}>
-            <span aria-hidden="true">&laquo;</span>
-        </a>
-    `;
-    if (currentPage > 1) {
-        prevLi.querySelector('a').addEventListener('click', (e) => {
+    const prevButton = container.querySelector('.page-item:first-child .page-link');
+    if (prevButton && currentPage > 1) {
+        prevButton.addEventListener('click', (e) => {
             e.preventDefault();
             onPageChange(currentPage - 1);
         });
     }
-    ul.appendChild(prevLi);
-
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-        const li = document.createElement('li');
-        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-        li.querySelector('a').addEventListener('click', (e) => {
-            e.preventDefault();
-            onPageChange(i);
-        });
-        ul.appendChild(li);
-    }
 
     // Next button
-    const nextLi = document.createElement('li');
-    nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
-    nextLi.innerHTML = `
-        <a class="page-link" href="#" aria-label="Next" ${currentPage === totalPages ? 'tabindex="-1"' : ''}>
-            <span aria-hidden="true">&raquo;</span>
-        </a>
-    `;
-    if (currentPage < totalPages) {
-        nextLi.querySelector('a').addEventListener('click', (e) => {
+    const nextButton = container.querySelector('.page-item:last-child .page-link');
+    if (nextButton && currentPage < totalPages) {
+        nextButton.addEventListener('click', (e) => {
             e.preventDefault();
             onPageChange(currentPage + 1);
         });
     }
-    ul.appendChild(nextLi);
-
-    pagination.appendChild(ul);
-    container.innerHTML = '';
-    container.appendChild(pagination);
 }
 
-// Example usage:
-// async function loadUsers() {
-//     try {
-//         const data = await fetchUsers(1, 10);
-//         renderUsers(data.items, 'usersTable');
-//         renderPagination(data.currentPage, data.totalPages, 'pagination', async (page) => {
-//             const newData = await fetchUsers(page, 10);
-//             renderUsers(newData.items, 'usersTable');
-//             renderPagination(newData.currentPage, newData.totalPages, 'pagination', arguments.callee);
-//         });
-//     } catch (error) {
-//         console.error('Error loading users:', error);
-//     }
-// } 
+// Main function to load users
+async function loadUsers(page = 1, pageSize = 10) {
+    try {
+        const data = await fetchUsers(page, pageSize);
+        renderUsers(data.items, 'usersTableBody');
+        renderPagination(data.currentPage, data.totalPages, 'pagination', (newPage) => {
+            loadUsers(newPage, pageSize);
+        });
+    } catch (error) {
+        console.error('Error loading users:', error);
+        const container = document.getElementById('usersTableBody');
+        if (container) {
+            container.innerHTML = `
+                <tr>
+                    <td colspan="3" class="text-center text-danger">
+                        Error loading users. Please try again later.
+                    </td>
+                </tr>
+            `;
+        }
+    }
+}
+
+// Make the loadUsers function available globally
+window.loadUsers = loadUsers;
+
+// Also run when the DOM is fully loaded
