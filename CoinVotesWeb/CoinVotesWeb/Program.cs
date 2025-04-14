@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using CoinVotesWeb.Data;
+using CoinVotesWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add controllers
+builder.Services.AddControllers();
+
+// Register services
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
@@ -29,6 +36,9 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+// Map controller endpoints
+app.MapControllers();
 
 app.Run();
 
