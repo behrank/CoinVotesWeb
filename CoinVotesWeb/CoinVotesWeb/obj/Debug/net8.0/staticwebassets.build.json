@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "U9u7BJ65YpT5iWYrnqoqboA6mBDX+t8PjhngGD0S+oE=",
+  "Hash": "cJ9hUeD9HxtihZMM4erDV/iw608pG7SiVu1dILCvByk=",
   "Source": "CoinVotesWeb",
   "BasePath": "_content/CoinVotesWeb",
   "Mode": "Default",
@@ -1592,6 +1592,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/dashboard.js"
+    },
+    {
+      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/js/devices.js",
+      "SourceId": "CoinVotesWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "BasePath": "_content/CoinVotesWeb",
+      "RelativePath": "js/devices.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/devices.js"
     },
     {
       "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/js/users.js",

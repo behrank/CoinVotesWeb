@@ -1,44 +1,76 @@
-using CoinVotesWeb.Models;
-using CoinVotesWeb.Services;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using CoinVotesWeb.Models;
+using CoinVotesWeb.Models.Response;
+using CoinVotesWeb.Services;
 
-namespace CoinVotesWeb.Controllers;
-
-[Route("api/[controller]")]
-[ApiController]
-public class DevicesApiController(IDeviceService service) : ControllerBase
+namespace CoinVotesWeb.Controllers
 {
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Device>>> Get([FromQuery] int page = 1, [FromQuery] int pageSize = 50)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DevicesApiController : ControllerBase
     {
-        try
-        {
-            var result = await service.GetPagedListAsync(page, pageSize);
-            return Ok(new { 
-                Items = result.Items, 
-                TotalCount = result.TotalCount,
-                CurrentPage = page,
-                PageSize = pageSize,
-                TotalPages = (int)Math.Ceiling(result.TotalCount / (double)pageSize)
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = ex.Message });
-        }
-    }
+        private readonly IDeviceService _deviceService;
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Device>> GetBy(int id)
-    {
-        try
+        public DevicesApiController(IDeviceService deviceService)
         {
-            var result = await service.GetByIdAsync(id);
-            return Ok(result);
+            _deviceService = deviceService;
         }
-        catch (Exception ex)
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<DeviceViewModel>>> GetDevices(
+            [FromQuery] int page = 1, 
+            [FromQuery] int pageSize = 50,
+            [FromQuery] string searchTerm = null)
         {
-            return StatusCode(500, new { error = ex.Message });
+            try
+            {
+                var result = await _deviceService.GetPagedListAsync(page, pageSize, searchTerm: searchTerm);
+                return Ok(new { 
+                    Items = result.Items.Select(x => new DeviceViewModel
+                    {
+                        ID = x.ID,
+                        DeviceId = x.DeviceId,
+                        DeviceType = x.DeviceType,
+                        DeviceModel = x.DeviceModel,
+                        UserId = x.UserId,
+                        OsVersion = x.OsVersion,
+                        DeviceLanguage = x.DeviceLanguage,
+                        DeviceRegion = x.DeviceRegion,
+                        IsNotificationPermissionGiven = x.IsNotificationPermissionGiven,
+                        CreatedAt = x.CreatedAt,
+                        UpdatedAt = x.UpdatedAt
+                    }).ToList(), 
+                    TotalCount = result.TotalCount,
+                    CurrentPage = page,
+                    PageSize = pageSize,
+                    TotalPages = (int)Math.Ceiling(result.TotalCount / (double)pageSize)
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Device>> GetDevice(int id)
+        {
+            try
+            {
+                var device = await _deviceService.GetByIdAsync(id);
+                if (device == null)
+                {
+                    return NotFound();
+                }
+                return Ok(device);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
         }
     }
 }
