@@ -1,0 +1,75 @@
+@page "/dashboard/devices"
+@using CoinVotesWeb.Components.Layout
+@layout DashboardLayout
+
+<PageTitle>Devices - Dashboard</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Devices Management</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Device Name</th>
+                                    <th>Device Type</th>
+                                    <th>User</th>
+                                    <th>Status</th>
+                                    <th>Last Active</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>iPhone 13</td>
+                                    <td>Mobile</td>
+                                    <td>john_doe</td>
+                                    <td><span class="badge bg-success">Online</span></td>
+                                    <td>2023-05-15 14:30</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Remove</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Samsung Galaxy S21</td>
+                                    <td>Mobile</td>
+                                    <td>jane_smith</td>
+                                    <td><span class="badge bg-success">Online</span></td>
+                                    <td>2023-05-15 13:45</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Remove</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>MacBook Pro</td>
+                                    <td>Desktop</td>
+                                    <td>robert_johnson</td>
+                                    <td><span class="badge bg-secondary">Offline</span></td>
+                                    <td>2023-05-14 18:20</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success">Add New Device</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

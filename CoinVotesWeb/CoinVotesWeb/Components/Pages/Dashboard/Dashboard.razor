@@ -1,0 +1,172 @@
+@page "/dashboard"
+@using CoinVotesWeb.Components.Layout
+@layout DashboardLayout
+
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Votes</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">1,234</div>
+                        <div class="text-success small mt-1">
+                            <i class="fas fa-arrow-up"></i> 12.5%
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-vote-yea fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Active Users</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">892</div>
+                        <div class="text-success small mt-1">
+                            <i class="fas fa-arrow-up"></i> 5.2%
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Total Coins</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">45</div>
+                        <div class="text-secondary small mt-1">
+                            <i class="fas fa-minus"></i> 0%
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-coins fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Average Rating</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">4.5</div>
+                        <div class="text-success small mt-1">
+                            <i class="fas fa-arrow-up"></i> 0.3
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-star fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+            <!-- Card Header -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Voting Activity Overview</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Chart Options:</div>
+                        <a class="dropdown-item" href="#">This Week</a>
+                        <a class="dropdown-item" href="#">This Month</a>
+                        <a class="dropdown-item" href="#">This Year</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Export Data</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-area">
+                    <div class="chart-placeholder">
+                        Chart will be implemented here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <!-- Card Header -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Top Voted Coins</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Chart Options:</div>
+                        <a class="dropdown-item" href="#">This Week</a>
+                        <a class="dropdown-item" href="#">This Month</a>
+                        <a class="dropdown-item" href="#">This Year</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Export Data</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <div class="chart-placeholder">
+                        Pie chart will be implemented here
+                    </div>
+                </div>
+                <div class="mt-4 text-center small">
+                    <span class="me-2">
+                        <i class="fas fa-circle text-primary"></i> Bitcoin
+                    </span>
+                    <span class="me-2">
+                        <i class="fas fa-circle text-success"></i> Ethereum
+                    </span>
+                    <span class="me-2">
+                        <i class="fas fa-circle text-info"></i> Cardano
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Initialize dashboard data here
+    }
+} 

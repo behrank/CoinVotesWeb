@@ -1,0 +1,150 @@
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card-content {
+    margin-top: 1rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.stat-change {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.stat-change.positive {
+    color: #2ecc71;
+}
+
+.stat-change.negative {
+    color: #e74c3c;
+}
+
+.stat-change.neutral {
+    color: #95a5a6;
+}
+
+.dashboard-charts {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.chart-container h3 {
+    margin: 0 0 1rem 0;
+    color: #2c3e50;
+}
+
+.chart-placeholder {
+    height: 300px;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Card styling */
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+}
+
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+}
+
+.border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+}
+
+.text-xs {
+    font-size: 0.7rem;
+}
+
+.text-gray-800 {
+    color: #5a5c69 !important;
+}
+
+.text-gray-300 {
+    color: #dddfeb !important;
+}
+
+/* Chart placeholders */
+.chart-area {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.chart-pie {
+    position: relative;
+    height: 260px;
+    width: 100%;
+}
+
+.chart-placeholder {
+    height: 100%;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    font-size: 0.85rem;
+}
+
+.dropdown-header {
+    font-weight: 800;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #b7b9cc;
+}
+
+/* Animation */
+.animated--fade-in {
+    animation-name: fadeIn;
+    animation-duration: 200ms;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} 

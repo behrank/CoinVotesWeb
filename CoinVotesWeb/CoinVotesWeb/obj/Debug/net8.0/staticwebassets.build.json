@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DYxRg6b5kIrLnDjsCOzYJNUZTrf4urZBYM1lXqIbIc4=",
+  "Hash": "6IlpM2X1tzhUu2l1WiJmaH9XJQnkeY0QQIZ/DWC4Bjc=",
   "Source": "CoinVotesWeb",
   "BasePath": "_content/CoinVotesWeb",
   "Mode": "Default",
@@ -1573,6 +1573,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/xrp.png"
+    },
+    {
+      "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/js/dashboard.js",
+      "SourceId": "CoinVotesWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/",
+      "BasePath": "_content/CoinVotesWeb",
+      "RelativePath": "js/dashboard.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/dashboard.js"
     },
     {
       "Identity": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/robots.txt",

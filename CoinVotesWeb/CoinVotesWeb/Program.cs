@@ -1,6 +1,9 @@
 using CoinVotesWeb.Components;
 using CoinVotesWeb.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using CoinVotesWeb.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

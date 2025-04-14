@@ -325,6 +325,10 @@
       "PackagePath": "staticwebassets/img/xrp.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/js/dashboard.js",
+      "PackagePath": "staticwebassets/js/dashboard.js"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/robots.txt",
       "PackagePath": "staticwebassets/robots.txt"
     },
