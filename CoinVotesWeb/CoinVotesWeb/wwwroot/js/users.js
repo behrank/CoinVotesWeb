@@ -1,7 +1,15 @@
-// Function to fetch users with pagination
-async function fetchUsers(page = 1, pageSize = 10) {
+// Function to fetch users with pagination and search
+async function fetchUsers(page = 1, pageSize = 20, searchTerm = '') {
     try {
-        const response = await fetch(`/api/UsersApi?page=${page}&pageSize=${pageSize}`);
+        const url = new URL('/api/UsersApi', window.location.origin);
+        url.searchParams.append('page', page);
+        url.searchParams.append('pageSize', pageSize);
+        
+        if (searchTerm) {
+            url.searchParams.append('searchTerm', searchTerm);
+        }
+        
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -39,7 +47,7 @@ function renderUsers(users, containerId) {
     if (!users || users.length === 0) {
         container.innerHTML = `
             <tr>
-                <td colspan="3" class="text-center">No users found</td>
+                <td colspan="4" class="text-center">No users found</td>
             </tr>
         `;
         return;
@@ -62,7 +70,7 @@ function renderUsers(users, containerId) {
                         hour: '2-digit',
                         minute: '2-digit',
                         second: '2-digit',
-                        hour12: false
+                        hour12: true
                     });
                 }
             } catch (e) {
@@ -195,12 +203,12 @@ function renderPagination(currentPage, totalPages, containerId, onPageChange) {
 }
 
 // Main function to load users
-async function loadUsers(page = 1, pageSize = 10) {
+async function loadUsers(page = 1, pageSize = 10, searchTerm = '') {
     try {
-        const data = await fetchUsers(page, pageSize);
+        const data = await fetchUsers(page, pageSize, searchTerm);
         renderUsers(data.items, 'usersTableBody');
         renderPagination(data.currentPage, data.totalPages, 'pagination', (newPage) => {
-            loadUsers(newPage, pageSize);
+            loadUsers(newPage, pageSize, searchTerm);
         });
     } catch (error) {
         console.error('Error loading users:', error);
@@ -208,7 +216,7 @@ async function loadUsers(page = 1, pageSize = 10) {
         if (container) {
             container.innerHTML = `
                 <tr>
-                    <td colspan="3" class="text-center text-danger">
+                    <td colspan="4" class="text-center text-danger">
                         Error loading users. Please try again later.
                     </td>
                 </tr>
@@ -217,7 +225,27 @@ async function loadUsers(page = 1, pageSize = 10) {
     }
 }
 
+// Function to initialize search functionality
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    
+    if (!searchInput || !searchButton) return;
+    
+    // Search on button click
+    searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value.trim();
+        loadUsers(1, 10, searchTerm);
+    });
+    
+    // Search on Enter key
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const searchTerm = searchInput.value.trim();
+            loadUsers(1, 10, searchTerm);
+        }
+    });
+}
+
 // Make the loadUsers function available globally
 window.loadUsers = loadUsers;
-
-// Also run when the DOM is fully loaded

@@ -8,7 +8,15 @@
 
 <div class="card bg-dark text-light">
     <div class="card-header bg-dark border-secondary">
-        <h3 class="card-title text-light">Users</h3>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="card-title text-light mb-0">Users</h3>
+            <div class="input-group" style="width: 300px;">
+                <input type="text" id="searchInput" class="form-control bg-dark text-light border-secondary" placeholder="Search users..." />
+                <button class="btn btn-outline-secondary" type="button" id="searchButton">
+                    <i class="bi bi-search">Search</i>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -44,6 +52,7 @@
     {
         if (firstRender)
         {
+            await JS.InvokeVoidAsync("initializeSearch");
             await JS.InvokeVoidAsync("loadUsers");
         }
     }

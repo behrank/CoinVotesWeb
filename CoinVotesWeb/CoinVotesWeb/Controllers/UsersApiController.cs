@@ -13,11 +13,14 @@ namespace CoinVotesWeb.Controllers
     public class UsersApiController(IUserService userService) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserViewModel>>> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 50)
+        public async Task<ActionResult<IEnumerable<UserViewModel>>> GetUsers(
+            [FromQuery] int page = 1, 
+            [FromQuery] int pageSize = 50,
+            [FromQuery] string searchTerm = null)
         {
             try
             {
-                var result = await userService.GetPagedListAsync(page, pageSize);
+                var result = await userService.GetPagedListAsync(page, pageSize, searchTerm: searchTerm);
                 return Ok(new { 
                     Items = result.Items.Select(x => new UserViewModel
                     {

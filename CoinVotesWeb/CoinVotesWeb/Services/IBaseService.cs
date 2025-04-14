@@ -11,7 +11,7 @@ namespace CoinVotesWeb.Services
         
         // Read
         Task<T> GetByIdAsync(int id);
-        Task<(List<T> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false);
+        Task<(List<T> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false, string searchTerm = null);
         
         // Update
         Task<T> UpdateAsync(T entity);

@@ -29,7 +29,7 @@ namespace CoinVotesWeb.Services
                 .ToListAsync();
         }
 
-        public override async Task<(List<Purchase> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false)
+        public override async Task<(List<Purchase> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false, string filter = null)
         {
             var query = _context.Purchases.AsQueryable();
 

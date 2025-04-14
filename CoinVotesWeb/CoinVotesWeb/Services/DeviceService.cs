@@ -23,7 +23,7 @@ namespace CoinVotesWeb.Services
             return await _dbSet.Where(d => d.UserId == userId).ToListAsync();
         }
 
-        public override async Task<(List<Device> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false)
+        public override async Task<(List<Device> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false, string filter = null)
         {
             // Default sort by CreatedAt if not specified
             if (string.IsNullOrEmpty(sortBy))

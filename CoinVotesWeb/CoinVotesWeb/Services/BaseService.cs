@@ -32,9 +32,17 @@ namespace CoinVotesWeb.Services
             return await _dbSet.FindAsync(id);
         }
 
-        public virtual async Task<(List<T> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false)
+        public virtual async Task<(List<T> Items, int TotalCount)> GetPagedListAsync(int page, int pageSize, string sortBy = null, bool sortDescending = false, string searchTerm = null)
         {
             var query = _dbSet.AsQueryable();
+
+            // Apply search filter if provided
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                // This is a base implementation that can be overridden by derived classes
+                // to provide specific search functionality
+                query = ApplySearchFilter(query, searchTerm);
+            }
 
             // Apply sorting if specified
             if (!string.IsNullOrEmpty(sortBy))
@@ -65,6 +73,13 @@ namespace CoinVotesWeb.Services
                 .ToListAsync();
 
             return (items, totalCount);
+        }
+
+        // This method can be overridden by derived classes to provide specific search functionality
+        protected virtual IQueryable<T> ApplySearchFilter(IQueryable<T> query, string searchTerm)
+        {
+            // Base implementation does nothing
+            return query;
         }
 
         public virtual async Task<T> UpdateAsync(T entity)
