@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoinVotesWeb.Models;
+namespace CoinVotesWeb.Data;
 
 public partial class AppDbContext : DbContext
 {

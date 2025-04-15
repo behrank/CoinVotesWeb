@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CoinVotesWeb.Models;
+namespace CoinVotesWeb.Data;
 
 public partial class User
 {

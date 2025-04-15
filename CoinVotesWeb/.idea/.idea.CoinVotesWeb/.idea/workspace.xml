@@ -9,45 +9,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6507bea2-a50b-4474-8aaf-8599cae9130e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CoinVotesWeb/Models/Response/SymbolViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/CoinVotesWeb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/CoinVotesWeb.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/App.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/DashboardLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/DashboardLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Devices.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Devices.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Users.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Users.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/DevicesApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/DevicesApiController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/SymbolsApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/SymbolsApiController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/UsersApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/UsersApiController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Models/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Symbol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Models/Symbol.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Pages/_Host.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/IBaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IBaseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/IDeviceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IDeviceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/IPurchaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IPurchaseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/ISignalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISignalService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/ISignalSubscriptionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISignalSubscriptionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.staticwebassets.runtime.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Data/ApplicationDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Device.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/Device.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Poll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/Poll.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Price.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/Price.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Purchase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/Purchase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/RssFeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/RssFeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/ServiceLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/ServiceLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Signal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/Signal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/SignalSubscription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/SignalSubscription.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Symbol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/Symbol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/UpDownVote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/UpDownVote.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Data/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/DeviceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/DeviceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IDeviceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IDeviceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IPurchaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IPurchaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISignalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISignalService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISignalSubscriptionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISignalSubscriptionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISymbolService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/ISymbolService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/Interfaces/IUserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/ref/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/ref/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/refint/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/refint/CoinVotesWeb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.pack.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets.pack.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets/msbuild.CoinVotesWeb.Microsoft.AspNetCore.StaticWebAssets.props" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/staticwebassets/msbuild.CoinVotesWeb.Microsoft.AspNetCore.StaticWebAssets.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/js/devices.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/js/users.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +162,7 @@
       <workItem from="1744285447932" duration="753000" />
       <workItem from="1744616983239" duration="7571000" />
       <workItem from="1744632229259" duration="8326000" />
-      <workItem from="1744700473465" duration="3873000" />
+      <workItem from="1744700473465" duration="4773000" />
     </task>
     <task id="LOCAL-00001" summary="Files added">
       <option name="closed" value="true" />

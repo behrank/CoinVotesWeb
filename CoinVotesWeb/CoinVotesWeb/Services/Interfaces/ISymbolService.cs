@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CoinVotesWeb.Models;
+using CoinVotesWeb.Data;
 
 namespace CoinVotesWeb.Services
 {

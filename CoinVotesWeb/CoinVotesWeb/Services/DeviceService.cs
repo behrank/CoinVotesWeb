@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoinVotesWeb;
 using CoinVotesWeb.Data;
-using CoinVotesWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

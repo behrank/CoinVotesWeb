@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CoinVotesWeb.Models;
+namespace CoinVotesWeb.Data;
 
 public partial class ServiceLog
 {

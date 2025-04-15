@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CoinVotesWeb.Models;
+using CoinVotesWeb.Data;
 using CoinVotesWeb.Models.Response;
 using CoinVotesWeb.Services;
 
