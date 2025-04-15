@@ -31,6 +31,7 @@
                         <th>Status</th>
                         <th>Created At</th>
                         <th>Actions</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody id="symbolsTableBody">
@@ -50,7 +51,7 @@
         </div>
     </div>
     <div class="card-footer bg-dark border-secondary">
-        <button class="btn btn-success">Add New Symbol</button>
+        <a href="/dashboard/symbols/add" class="btn btn-success">Add New Symbol</a>
     </div>
 </div>
 
@@ -141,7 +142,12 @@
                 <td>${createdAt}</td>
                 <td>
                     <a href="/dashboard/symbols/edit/${symbol.id}" class="btn btn-sm btn-primary">Edit</a>
-                    <button class="btn btn-sm btn-danger">Remove</button>
+                </td>
+                <td>
+                    <button class="btn btn-sm ${symbol.isActive ? 'btn-danger' : 'btn-success'}" 
+                            onclick="toggleSymbolStatus(${symbol.id}, ${!symbol.isActive})">
+                        ${symbol.isActive ? 'Deactivate' : 'Activate'}
+                    </button>
                 </td>
             </tr>
         `;
@@ -306,8 +312,32 @@
         });
     }
 
+    // Function to toggle symbol status
+    async function toggleSymbolStatus(id, newStatus) {
+        try {
+            const response = await fetch(`/api/SymbolsApi/${id}/toggle-status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ isActive: newStatus })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update symbol status');
+            }
+
+            // Reload the symbols list to reflect the change
+            loadSymbols();
+        } catch (error) {
+            console.error('Error updating symbol status:', error);
+            alert('Failed to update symbol status. Please try again.');
+        }
+    }
+
     // Make the loadSymbols function available globally
     window.loadSymbols = loadSymbols;
     window.initializeSearch = initializeSearch;
+    window.toggleSymbolStatus = toggleSymbolStatus;
     
 </script>

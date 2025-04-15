@@ -97,5 +97,32 @@ namespace CoinVotesWeb.Controllers
                 return StatusCode(500, new { error = ex.Message });
             }
         }
+
+        [HttpPut("{id}/toggle-status")]
+        public async Task<IActionResult> ToggleStatus(int id, [FromBody] ToggleStatusRequest request)
+        {
+            try
+            {
+                var symbol = await _symbolService.GetByIdAsync(id);
+                if (symbol == null)
+                {
+                    return NotFound();
+                }
+
+                symbol.IsActive = request.IsActive;
+                await _symbolService.UpdateAsync(symbol);
+
+                return Ok(new { message = "Symbol status updated successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while updating the symbol status", error = ex.Message });
+            }
+        }
+    }
+
+    public class ToggleStatusRequest
+    {
+        public bool IsActive { get; set; }
     }
 }
