@@ -66,8 +66,6 @@ public partial class AppDbContext : DbContext
         modelBuilder.Entity<Price>(entity =>
         {
             entity.HasIndex(e => e.SymbolId, "IX_Prices_SymbolId");
-
-            entity.HasOne(d => d.SymbolNavigation).WithMany(p => p.Prices).HasForeignKey(d => d.SymbolId);
         });
 
         modelBuilder.Entity<Purchase>(entity =>
@@ -111,9 +109,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.UserId).HasDefaultValue(0);
 
             entity.HasOne(d => d.Poll).WithMany(p => p.UpDownVotes).HasForeignKey(d => d.PollId);
-
-            entity.HasOne(d => d.Symbol).WithMany(p => p.UpDownVotes).HasForeignKey(d => d.SymbolID);
-
+            
             entity.HasOne(d => d.User).WithMany(p => p.UpDownVotes).HasForeignKey(d => d.UserId);
         });
 

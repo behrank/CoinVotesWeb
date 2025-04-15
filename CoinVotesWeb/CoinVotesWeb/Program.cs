@@ -19,6 +19,7 @@ builder.Services.AddControllers();
 // Register services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IDeviceService, DeviceService>();
+builder.Services.AddScoped<ISymbolService, SymbolService>();
 
 var app = builder.Build();
 

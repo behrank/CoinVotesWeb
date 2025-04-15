@@ -10,38 +10,34 @@ namespace CoinVotesWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DevicesApiController : ControllerBase
+    public class SymbolsApiController : ControllerBase
     {
-        private readonly IDeviceService _deviceService;
+        private readonly ISymbolService _symbolService;
 
-        public DevicesApiController(IDeviceService deviceService)
+        public SymbolsApiController(ISymbolService symbolService)
         {
-            _deviceService = deviceService;
+            _symbolService = symbolService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DeviceViewModel>>> GetDevices(
+        public async Task<ActionResult<IEnumerable<SymbolViewModel>>> GetSymbols(
             [FromQuery] int page = 1, 
             [FromQuery] int pageSize = 50,
             [FromQuery] string searchTerm = "")
         {
             try
             {
-                var result = await _deviceService.GetPagedListAsync(page, pageSize, searchTerm: searchTerm);
+                var result = await _symbolService.GetPagedListAsync(page, pageSize, searchTerm: searchTerm);
                 return Ok(new { 
-                    Items = result.Items.Select(x => new DeviceViewModel
+                    Items = result.Items.Select(x => new SymbolViewModel
                     {
                         ID = x.ID,
-                        DeviceId = x.DeviceId,
-                        DeviceType = x.DeviceType,
-                        DeviceModel = x.DeviceModel,
-                        UserId = x.UserId,
-                        OsVersion = x.OsVersion,
-                        DeviceLanguage = x.DeviceLanguage,
-                        DeviceRegion = x.DeviceRegion,
-                        IsNotificationPermissionGiven = x.IsNotificationPermissionGiven,
+                        Name = x.Name,
+                        SymbolUsdt = x.SymbolUsdt,
+                        Code = x.Code,
+                        OrderNo = x.OrderNo,
                         CreatedAt = x.CreatedAt,
-                        UpdatedAt = x.UpdatedAt
+                        IsActive = x.IsActive
                     }).ToList(), 
                     TotalCount = result.TotalCount,
                     CurrentPage = page,
@@ -56,16 +52,12 @@ namespace CoinVotesWeb.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Device>> GetDevice(int id)
+        public async Task<ActionResult<Symbol>> GetSymbol(int id)
         {
             try
             {
-                var device = await _deviceService.GetByIdAsync(id);
-                if (device == null)
-                {
-                    return NotFound();
-                }
-                return Ok(device);
+                var symbol = await _symbolService.GetByIdAsync(id);
+                return Ok(symbol);
             }
             catch (Exception ex)
             {
@@ -73,4 +65,4 @@ namespace CoinVotesWeb.Controllers
             }
         }
     }
-}
+} 

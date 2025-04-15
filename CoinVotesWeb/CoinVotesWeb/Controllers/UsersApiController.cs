@@ -16,7 +16,7 @@ namespace CoinVotesWeb.Controllers
         public async Task<ActionResult<IEnumerable<UserViewModel>>> GetUsers(
             [FromQuery] int page = 1, 
             [FromQuery] int pageSize = 50,
-            [FromQuery] string searchTerm = null)
+            [FromQuery] string searchTerm = "")
         {
             try
             {
@@ -47,10 +47,6 @@ namespace CoinVotesWeb.Controllers
             try
             {
                 var user = await userService.GetByIdAsync(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
                 return Ok(user);
             }
             catch (Exception ex)
