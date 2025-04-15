@@ -161,6 +161,10 @@
       "PackagePath": "staticwebassets/img/floki.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/flow.png",
+      "PackagePath": "staticwebassets/img/flow.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/ftm.png",
       "PackagePath": "staticwebassets/img/ftm.png"
     },
@@ -175,6 +179,10 @@
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/hbar.png",
       "PackagePath": "staticwebassets/img/hbar.png"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/hype.png",
+      "PackagePath": "staticwebassets/img/hype.png"
     },
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/icp.png",
@@ -253,6 +261,10 @@
       "PackagePath": "staticwebassets/img/rndr.png"
     },
     {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/sei.png",
+      "PackagePath": "staticwebassets/img/sei.png"
+    },
+    {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/shib.png",
       "PackagePath": "staticwebassets/img/shib.png"
     },
@@ -323,6 +335,10 @@
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/xrp.png",
       "PackagePath": "staticwebassets/img/xrp.png"
+    },
+    {
+      "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/img/xtz.png",
+      "PackagePath": "staticwebassets/img/xtz.png"
     },
     {
       "Id": "/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/wwwroot/js/dashboard.js",
