@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoinVotesWeb.Data;
+using CoinVotesWeb.Models.Request;
 using CoinVotesWeb.Models.Response;
 using CoinVotesWeb.Services;
 
@@ -51,12 +52,44 @@ namespace CoinVotesWeb.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [Route("/detail/{id}")]
+        [HttpGet]
         public async Task<ActionResult<Symbol>> GetSymbol(int id)
         {
             try
             {
                 var symbol = await _symbolService.GetByIdAsync(id);
+                if (symbol == null)
+                {
+                    return NotFound();
+                }
+                return Ok(symbol);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Symbol>> UpdateSymbol(int id, [FromBody] SymbolUpdateModel model)
+        {
+            try
+            {
+                var symbol = await _symbolService.GetByIdAsync(id);
+                if (symbol == null)
+                {
+                    return NotFound();
+                }
+
+                // Update symbol properties
+                symbol.Name = model.Name;
+                symbol.SymbolUsdt = model.SymbolUsdt;
+                symbol.Code = model.Code;
+                symbol.OrderNo = model.OrderNo;
+                symbol.IsActive = model.IsActive;
+
+                await _symbolService.UpdateAsync(symbol);
                 return Ok(symbol);
             }
             catch (Exception ex)
@@ -65,4 +98,4 @@ namespace CoinVotesWeb.Controllers
             }
         }
     }
-} 
+}

@@ -92,7 +92,7 @@
     // Function to fetch a single symbol by ID
     async function fetchSymbolById(id) {
         try {
-            const response = await fetch(`/api/SymbolsApi/${id}`);
+            const response = await fetch(`/detail/${id}`);
             if (!response.ok) {
                 if (response.status === 404) {
                     return null;
@@ -115,7 +115,7 @@
         if (!symbols || symbols.length === 0) {
             container.innerHTML = `
             <tr>
-                <td colspan="7" class="text-center">No symbols found</td>
+                <td colspan="8" class="text-center">No symbols found</td>
             </tr>
         `;
             return;
@@ -140,7 +140,7 @@
                 </td>
                 <td>${createdAt}</td>
                 <td>
-                    <button class="btn btn-sm btn-primary">Edit</button>
+                    <a href="/dashboard/symbols/edit/${symbol.id}" class="btn btn-sm btn-primary">Edit</a>
                     <button class="btn btn-sm btn-danger">Remove</button>
                 </td>
             </tr>
@@ -309,14 +309,5 @@
     // Make the loadSymbols function available globally
     window.loadSymbols = loadSymbols;
     window.initializeSearch = initializeSearch;
-
-    // Also run when the DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if we're on the symbols page
-        if (document.getElementById('symbolsTableBody')) {
-            loadSymbols();
-            initializeSearch();
-        }
-    });
-
+    
 </script>

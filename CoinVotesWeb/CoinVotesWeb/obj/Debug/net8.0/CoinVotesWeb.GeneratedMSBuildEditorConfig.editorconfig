@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EYXNoYm9hcmQvU2lnbmFscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/Components/Pages/Dashboard/SymbolEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EYXNoYm9hcmQvU3ltYm9sRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/behran/Documents/GitHub/CoinVotesWeb/CoinVotesWeb/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EYXNoYm9hcmQvU3ltYm9scy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
