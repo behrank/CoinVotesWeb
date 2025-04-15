@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoinVotesWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8a7045a38f997abe3983fa479d862c45822f73a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f000e1afbb42bf60f05dfb2cf88ecd461cd95117")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoinVotesWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoinVotesWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

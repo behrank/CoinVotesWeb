@@ -10,30 +10,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6507bea2-a50b-4474-8aaf-8599cae9130e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/CoinVotesWeb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/CoinVotesWeb.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/DashboardLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/DashboardLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/SymbolsApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/SymbolsApiController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Data/Migrations/AddMissingIndexes.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Models/Response/SymbolViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Models/Response/SymbolViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/SymbolService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/SymbolService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Layout/NavMenu.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/CoinVotesWeb.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/CoinVotesWeb.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/ref/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/ref/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/refint/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/refint/CoinVotesWeb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/img/hbar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/wwwroot/img/ton.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +146,8 @@
       <workItem from="1744616983239" duration="7571000" />
       <workItem from="1744632229259" duration="8326000" />
       <workItem from="1744700473465" duration="6605000" />
-      <workItem from="1744718805335" duration="703000" />
+      <workItem from="1744718805335" duration="1100000" />
+      <workItem from="1744736530965" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="Files added">
       <option name="closed" value="true" />
