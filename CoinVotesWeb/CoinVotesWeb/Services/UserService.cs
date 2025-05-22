@@ -23,7 +23,7 @@ namespace CoinVotesWeb.Services
             // Default sort by CreatedAt if not specified
             if (string.IsNullOrEmpty(sortBy))
             {
-                sortBy = "CreatedAt";
+                sortBy = "ID";
                 sortDescending = true;
             }
 

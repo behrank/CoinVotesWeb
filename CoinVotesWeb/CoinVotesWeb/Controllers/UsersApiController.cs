@@ -14,8 +14,8 @@ namespace CoinVotesWeb.Controllers
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserViewModel>>> GetUsers(
-            [FromQuery] int page = 1, 
-            [FromQuery] int pageSize = 50,
+            [FromQuery] int page, 
+            [FromQuery] int pageSize,
             [FromQuery] string searchTerm = "")
         {
             try

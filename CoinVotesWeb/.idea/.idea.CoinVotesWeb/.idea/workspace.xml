@@ -10,9 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6507bea2-a50b-4474-8aaf-8599cae9130e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoinVotesWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Dashboard.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Symbols.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/SymbolsApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/SymbolsApiController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Users.razor" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Components/Pages/Dashboard/Users.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Controllers/UsersApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Controllers/UsersApiController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/SymbolService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/SymbolService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinVotesWeb/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/bin/Debug/net8.0/CoinVotesWeb.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinVotesWeb/obj/Debug/net8.0/CoinVotesWeb.AssemblyInfo.cs" afterDir="false" />
@@ -151,7 +152,10 @@
       <workItem from="1744718805335" duration="1100000" />
       <workItem from="1744736530965" duration="455000" />
       <workItem from="1744737646871" duration="205000" />
-      <workItem from="1744738863936" duration="539000" />
+      <workItem from="1744738863936" duration="1900000" />
+      <workItem from="1746557441126" duration="983000" />
+      <workItem from="1746622059500" duration="267000" />
+      <workItem from="1747739636841" duration="96000" />
     </task>
     <task id="LOCAL-00001" summary="Files added">
       <option name="closed" value="true" />

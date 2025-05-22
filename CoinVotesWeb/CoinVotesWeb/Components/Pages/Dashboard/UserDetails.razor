@@ -1,0 +1,186 @@
+@page "/dashboard/users/details/{Id:int}"
+@using CoinVotesWeb.Components.Layout
+@layout DashboardLayout
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>User Details - CoinVotes</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-dark text-light">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">User Details</h5>
+                    <button class="btn btn-outline-light" @onclick="GoBack">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div id="userDetails">
+                        <div class="text-center">
+                            <div class="spinner-border text-light" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Make functions available globally
+    window.loadUserDetails = async function() {
+        const userId = window.location.pathname.split('/').pop();
+        try {
+            const response = await fetch(`/api/UsersApi/${userId}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch user details');
+            }
+            const user = await response.json();
+            renderUserDetails(user);
+        } catch (error) {
+            console.error('Error loading user details:', error);
+            document.getElementById('userDetails').innerHTML = `
+                <div class="alert alert-danger">
+                    Failed to load user details. Please try again later.
+                </div>
+            `;
+        }
+    }
+
+    window.renderUserDetails = function(user) {
+        const container = document.getElementById('userDetails');
+        if (!container) return;
+
+        // Format dates
+        let formattedCreatedAt = 'N/A';
+        let formattedRefreshTokenExpiry = 'N/A';
+        
+        if (user.createdAt) {
+            try {
+                const date = new Date(user.createdAt);
+                if (!isNaN(date.getTime())) {
+                    formattedCreatedAt = date.toLocaleString();
+                }
+            } catch (error) {
+                console.error('Error parsing createdAt:', error);
+            }
+        }
+
+        if (user.refreshTokenExpiry) {
+            try {
+                const date = new Date(user.refreshTokenExpiry);
+                if (!isNaN(date.getTime())) {
+                    formattedRefreshTokenExpiry = date.toLocaleString();
+                }
+            } catch (error) {
+                console.error('Error parsing refreshTokenExpiry:', error);
+            }
+        }
+
+        // Format gender
+        const genderMap = {
+            0: 'Not Specified',
+            1: 'Male',
+            2: 'Female'
+        };
+        const formattedGender = genderMap[user.gender] || 'Not Specified';
+
+        container.innerHTML = `
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-light mb-3">Basic Information</h6>
+                    <table class="table table-dark">
+                        <tr>
+                            <th>ID:</th>
+                            <td>${user.id}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>${user.email}</td>
+                        </tr>
+                        <tr>
+                            <th>First Name:</th>
+                            <td>${user.firstName || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <th>Last Name:</th>
+                            <td>${user.lastName || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone:</th>
+                            <td>${user.phone || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <th>Gender:</th>
+                            <td>${formattedGender}</td>
+                        </tr>
+                        <tr>
+                            <th>Is Generic User:</th>
+                            <td>${user.isGenericUser ? 'Yes' : 'No'}</td>
+                        </tr>
+                        <tr>
+                            <th>Created At:</th>
+                            <td>${formattedCreatedAt}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-light mb-3">Authentication Information</h6>
+                    <table class="table table-dark">
+                        <tr>
+                            <th>Password Salt:</th>
+                            <td>${user.passwordSalt ? '********' : 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <th>Password Hash:</th>
+                            <td>${user.passwordHash ? '********' : 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <th>Refresh Token:</th>
+                            <td>${user.refreshToken || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <th>Refresh Token Expiry:</th>
+                            <td>${formattedRefreshTokenExpiry}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h6 class="text-light mb-3">Related Information</h6>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> Device and voting information will be displayed here in future updates.
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Initialize when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        window.loadUserDetails();
+    });
+</script>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("/dashboard/users");
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("loadUserDetails");
+        }
+    }
+} 

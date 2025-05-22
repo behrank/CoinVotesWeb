@@ -27,6 +27,7 @@
                     <th>Email</th>
                     <th>Create Date</th>
                     <th>Device Type</th>
+                    <th> </th>
                 </tr>
                 </thead>
                 <tbody id="usersTableBody">
@@ -59,8 +60,9 @@
 }
 
 <script>
+    const defaultPageSize = 50;
     // Function to fetch users with pagination and search
-    async function fetchUsers(page = 1, pageSize = 20, searchTerm = '') {
+    async function fetchUsers(page = 1, pageSize, searchTerm = '') {
         try {
             const url = new URL('/api/UsersApi', window.location.origin);
             url.searchParams.append('page', page);
@@ -107,46 +109,39 @@
 
         if (!users || users.length === 0) {
             container.innerHTML = `
-            <tr>
-                <td colspan="4" class="text-center">No users found</td>
-            </tr>
-        `;
+                <tr>
+                    <td colspan="4" class="text-center">No users found</td>
+                </tr>
+            `;
             return;
         }
 
         let html = '';
         users.forEach(user => {
-            // Fix date formatting for ISO 8601 format
-            let createDate = 'N/A';
+            // Format date
+            let formattedDate = 'N/A';
             if (user.createdAt) {
                 try {
-                    // Parse ISO 8601 date string
                     const date = new Date(user.createdAt);
                     if (!isNaN(date.getTime())) {
-                        // Format the date in a more readable way
-                        createDate = date.toLocaleString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit',
-                            second: '2-digit',
-                            hour12: true
-                        });
+                        formattedDate = date.toLocaleString();
                     }
-                } catch (e) {
-                    console.error('Error parsing date:', e);
+                } catch (error) {
+                    console.error('Error parsing date:', error);
                 }
             }
 
             html += `
-            <tr>
-                <td>${user.id}</td>
-                <td>${user.email}</td>
-                <td>${createDate}</td>
-                <td>${user.device}</td>
-            </tr>
-        `;
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.email}</td>
+                    <td>${user.device}</td>
+                    <td>${formattedDate}</td>
+                    <td>
+                        <a href="/dashboard/users/details/${user.id}" class="btn btn-sm btn-info">Details</a>
+                    </td>
+                </tr>
+            `;
         });
 
         container.innerHTML = html;
@@ -264,12 +259,12 @@
     }
 
     // Main function to load users
-    async function loadUsers(page = 1, pageSize = 10, searchTerm = '') {
+    async function loadUsers(page = 1, searchTerm = '') {
         try {
-            const data = await fetchUsers(page, pageSize, searchTerm);
+            const data = await fetchUsers(page, defaultPageSize, searchTerm);
             renderUsers(data.items, 'usersTableBody');
             renderPagination(data.currentPage, data.totalPages, 'pagination', (newPage) => {
-                loadUsers(newPage, pageSize, searchTerm);
+                loadUsers(newPage, searchTerm);
             });
         } catch (error) {
             console.error('Error loading users:', error);
@@ -296,18 +291,19 @@
         // Search on button click
         searchButton.addEventListener('click', () => {
             const searchTerm = searchInput.value.trim();
-            loadUsers(1, 10, searchTerm);
+            loadUsers(1, searchTerm);
         });
 
         // Search on Enter key
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 const searchTerm = searchInput.value.trim();
-                loadUsers(1, 10, searchTerm);
+                loadUsers(1, searchTerm);
             }
         });
     }
 
     // Make the loadUsers function available globally
     window.loadUsers = loadUsers;
+
 </script>
