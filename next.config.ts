@@ -15,9 +15,6 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
   },
 
-  // Enable SWC minification
-  swcMinify: true,
-
   // Configure webpack for better caching
   webpack: (config, { dev, isServer }) => {
     // Optimize CSS
@@ -61,13 +58,14 @@ const nextConfig: NextConfig = {
   // Configure build output
   experimental: {
     optimizeCss: true,
-    turbo: {
-      loaders: {
-        // Configure loaders for better caching
-        '.js': ['swc'],
-        '.ts': ['swc'],
-        '.tsx': ['swc'],
-      },
+  },
+
+  // Configure Turbopack
+  turbopack: {
+    rules: {
+      '*.js': ['swc'],
+      '*.ts': ['swc'],
+      '*.tsx': ['swc'],
     },
   },
 };
