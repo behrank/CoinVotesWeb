@@ -31,44 +31,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-          cache: 'npm'
           
-      - name: Clean install
-        run: |
-          echo "Cleaning previous installations..."
-          rm -rf node_modules
-          rm -f package-lock.json
-          
-      - name: Create necessary directories
-        run: |
-          mkdir -p src/styles
-          
-      - name: Setup CSS configuration
-        run: |
-          # Create base CSS file
-          echo '@tailwind base;
-          @tailwind components;
-          @tailwind utilities;' > src/styles/globals.css
-          
-          # Create PostCSS config
-          echo '{
-            "plugins": {
-              "tailwindcss": {},
-              "autoprefixer": {}
-            }
-          }' > postcss.config.json
-          
-          # Create Tailwind config
-          echo 'module.exports = {
-            content: [
-              "./src/**/*.{js,ts,jsx,tsx}",
-            ],
-            theme: {
-              extend: {},
-            },
-            plugins: [],
-          }' > tailwind.config.js
-          
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: |
+            **/node_modules
+            ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+            
+      - name: Cache Next.js build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-
+            
       - name: Install dependencies
         run: |
           echo "Installing dependencies..."
@@ -95,28 +79,30 @@ jobs:
                 "tailwind-merge": "^2.0.0"
               },
               "devDependencies": {
-                "tailwindcss": "^3.3.0",
-                "postcss": "^8.4.31",
-                "autoprefixer": "^10.4.16",
-                "@tailwindcss/typography": "^0.5.10",
-                "@tailwindcss/forms": "^0.5.7",
-                "@tailwindcss/aspect-ratio": "^0.4.2"
+                "tailwindcss": "3.3.0",
+                "postcss": "8.4.31",
+                "autoprefixer": "10.4.16",
+                "@tailwindcss/typography": "0.5.10",
+                "@tailwindcss/forms": "0.5.7",
+                "@tailwindcss/aspect-ratio": "0.4.2"
               }
             }' > package.json
           fi
           
-          # Clean install
-          echo "Performing clean install..."
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
+          if [ ! -f "node_modules/.package-lock.json" ]; then
+            echo "Clean installing dependencies..."
+            rm -rf node_modules package-lock.json
+            npm cache clean --force
+            npm install --no-audit --no-fund --no-optional
+          fi
           
-          # Install dependencies
-          npm install
+          # Verify package installation
+          if [ ! -d "node_modules/tailwindcss" ]; then
+            echo "Installing Tailwind CSS and related packages..."
+            npm install -D tailwindcss@3.3.0 postcss@8.4.31 autoprefixer@10.4.16 --no-audit --no-fund
+          fi
           
-          # Install Tailwind and PostCSS explicitly in the root
-          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
-          
-          # Create Tailwind config
+          # Create necessary config files
           echo "/** @type {import('tailwindcss').Config} */
           module.exports = {
             content: [
@@ -134,140 +120,57 @@ jobs:
             ],
           }" > tailwind.config.js
           
-          # Create PostCSS config
-          echo "{
-            \"plugins\": {
-              \"tailwindcss\": {},
-              \"autoprefixer\": {}
-            }
-          }" > postcss.config.json
+          echo "module.exports = {
+            plugins: {
+              tailwindcss: {},
+              autoprefixer: {},
+            },
+          }" > postcss.config.js
           
-          # Ensure src/app directory exists
+          # Setup Next.js app structure
           mkdir -p src/app
           
-          # Create or update root layout with Tailwind
-          echo "import './globals.css'
+          # Create globals.css if it doesn't exist
+          if [ ! -f src/app/globals.css ]; then
+            echo "@tailwind base;
+            @tailwind components;
+            @tailwind utilities;" > src/app/globals.css
+          fi
           
-          export const metadata = {
-            title: 'CoinVotes',
-            description: 'Cryptocurrency Voting Platform',
-          }
+          # Create root layout if it doesn't exist
+          if [ ! -f src/app/layout.tsx ]; then
+            echo "import './globals.css'
+            
+            export const metadata = {
+              title: 'CoinVotes',
+              description: 'Cryptocurrency Voting Platform',
+            }
+            
+            export default function RootLayout({
+              children,
+            }: {
+              children: React.ReactNode
+            }) {
+              return (
+                <html lang=\"en\">
+                  <body>{children}</body>
+                </html>
+              )
+            }" > src/app/layout.tsx
+          fi
           
-          export default function RootLayout({
-            children,
-          }: {
-            children: React.ReactNode
-          }) {
-            return (
-              <html lang=\"en\">
-                <body>{children}</body>
-              </html>
-            )
-          }" > src/app/layout.tsx
-          
-          # Create globals.css
-          echo "@tailwind base;
-          @tailwind components;
-          @tailwind utilities;" > src/app/globals.css
-          
-          # Verify Tailwind installation
-          echo "Verifying Tailwind installation..."
+          # Verify final installation
           if [ -f "node_modules/tailwindcss/package.json" ]; then
             echo "✅ Tailwind CSS is installed correctly"
+            npm list tailwindcss postcss autoprefixer
           else
             echo "❌ Tailwind CSS installation failed"
             exit 1
           fi
           
-      - name: Initialize Tailwind
-        run: |
-          echo "Initializing Tailwind..."
-          # Create Tailwind config if it doesn't exist
-          if [ ! -f tailwind.config.js ]; then
-            echo "/** @type {import('tailwindcss').Config} */
-            module.exports = {
-              content: [
-                './src/**/*.{js,ts,jsx,tsx,mdx}',
-                './components/**/*.{js,ts,jsx,tsx,mdx}',
-              ],
-              theme: {
-                extend: {},
-              },
-              plugins: [
-                require('@tailwindcss/typography'),
-                require('@tailwindcss/forms'),
-                require('@tailwindcss/aspect-ratio'),
-              ],
-            }" > tailwind.config.js
-          fi
-
-          # Create PostCSS config if it doesn't exist
-          if [ ! -f postcss.config.js ]; then
-            echo "module.exports = {
-              plugins: {
-                tailwindcss: {},
-                autoprefixer: {},
-              },
-            }" > postcss.config.js
-          fi
-
-          # Create or update CSS file
-          mkdir -p src/styles
-          echo "@tailwind base;
-          @tailwind components;
-          @tailwind utilities;" > src/styles/globals.css
-
-          echo "✅ Tailwind initialization completed"
-          
       - name: Build application
         run: |
           echo "Starting build process..."
-          # Create next.config.js with security headers
-          echo 'const path = require("path");
-          
-          /** @type {import("next").NextConfig} */
-          const nextConfig = {
-            eslint: {
-              ignoreDuringBuilds: true,
-            },
-            poweredByHeader: false,
-            async headers() {
-              return [
-                {
-                  source: "/:path*",
-                  headers: [
-                    {
-                      key: "X-Frame-Options",
-                      value: "DENY",
-                    },
-                    {
-                      key: "X-Content-Type-Options",
-                      value: "nosniff",
-                    },
-                    {
-                      key: "Referrer-Policy",
-                      value: "strict-origin-when-cross-origin",
-                    },
-                    {
-                      key: "X-XSS-Protection",
-                      value: "1; mode=block",
-                    },
-                  ],
-                },
-              ];
-            },
-            webpack: (config) => {
-              config.resolve.alias = {
-                ...config.resolve.alias,
-                "@": path.join(__dirname, "src"),
-              };
-              return config;
-            },
-          };
-          
-          module.exports = nextConfig;' > next.config.js
-          
-          # Run build
           npm run build --no-lint
           
       - name: Setup PM2 if not exists
