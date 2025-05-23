@@ -1,4 +1,0 @@
-# app-ads.txt file for CoinInsight
-
-# Authorized Sellers
-google.com, pub-6421005250557166, DIRECT, f08c47fec0942fa0
