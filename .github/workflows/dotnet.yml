@@ -127,27 +127,216 @@ jobs:
           # Create PostCSS config
           echo "module.exports = {
             plugins: {
-              'tailwindcss': require('tailwindcss'),
-              'autoprefixer': require('autoprefixer'),
+              tailwindcss: {},
+              autoprefixer: {},
             }
           }" > postcss.config.js
           
-          # Verify installations
-          echo "Verifying package installations..."
-          for package in "tailwindcss" "@tailwindcss/typography" "@tailwindcss/forms" "@tailwindcss/aspect-ratio" "postcss" "autoprefixer"; do
-            if [ ! -d "node_modules/$package" ]; then
-              echo "❌ $package is missing, attempting to reinstall..."
-              npm install -D "$package" --no-audit --no-fund
-            fi
-          done
+          # Create necessary directories
+          mkdir -p src/app src/components/ui src/styles
           
-          # Final verification
-          if npm list tailwindcss @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio postcss autoprefixer; then
-            echo "✅ All Tailwind packages installed correctly"
-          else
-            echo "❌ Some Tailwind packages are missing"
-            exit 1
-          fi
+          # Create UI components
+          echo "import * as React from 'react'
+          import { Slot } from '@radix-ui/react-slot'
+          import { cva, type VariantProps } from 'class-variance-authority'
+          import { cn } from '@/lib/utils'
+          
+          const buttonVariants = cva(
+            'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+            {
+              variants: {
+                variant: {
+                  default: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+                  destructive: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
+                  outline: 'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground',
+                  secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+                  ghost: 'hover:bg-accent hover:text-accent-foreground',
+                  link: 'text-primary underline-offset-4 hover:underline',
+                },
+                size: {
+                  default: 'h-9 px-4 py-2',
+                  sm: 'h-8 rounded-md px-3 text-xs',
+                  lg: 'h-10 rounded-md px-8',
+                  icon: 'h-9 w-9',
+                },
+              },
+              defaultVariants: {
+                variant: 'default',
+                size: 'default',
+              },
+            }
+          )
+          
+          export interface ButtonProps
+            extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+              VariantProps<typeof buttonVariants> {
+            asChild?: boolean
+          }
+          
+          const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+            ({ className, variant, size, asChild = false, ...props }, ref) => {
+              const Comp = asChild ? Slot : 'button'
+              return (
+                <Comp
+                  className={cn(buttonVariants({ variant, size, className }))}
+                  ref={ref}
+                  {...props}
+                />
+              )
+            }
+          )
+          Button.displayName = 'Button'
+          
+          export { Button, buttonVariants }
+          " > src/components/ui/button.tsx
+          
+          # Create Card component
+          echo "import * as React from 'react'
+          import { cn } from '@/lib/utils'
+          
+          const Card = React.forwardRef<
+            HTMLDivElement,
+            React.HTMLAttributes<HTMLDivElement>
+          >(({ className, ...props }, ref) => (
+            <div
+              ref={ref}
+              className={cn(
+                'rounded-xl border bg-card text-card-foreground shadow',
+                className
+              )}
+              {...props}
+            />
+          ))
+          Card.displayName = 'Card'
+          
+          export { Card }
+          " > src/components/ui/card.tsx
+          
+          # Create Navbar component
+          echo "import Link from 'next/link'
+          import { Button } from '@/components/ui/button'
+          
+          export default function Navbar() {
+            return (
+              <nav className='flex items-center justify-between p-4 bg-white shadow-sm'>
+                <Link href='/' className='text-xl font-bold'>
+                  CoinVotes
+                </Link>
+                <div className='flex gap-4'>
+                  <Link href='/'>
+                    <Button variant='ghost'>Home</Button>
+                  </Link>
+                  <Link href='/contact'>
+                    <Button variant='ghost'>Contact</Button>
+                  </Link>
+                </div>
+              </nav>
+            )
+          }
+          " > src/components/Navbar.tsx
+          
+          # Create Footer component
+          echo "export default function Footer() {
+            return (
+              <footer className='mt-auto py-4 text-center bg-gray-100'>
+                <p>© 2024 CoinVotes. All rights reserved.</p>
+              </footer>
+            )
+          }
+          " > src/components/Footer.tsx
+          
+          # Create utils
+          mkdir -p src/lib
+          echo "import { clsx, type ClassValue } from 'clsx'
+          import { twMerge } from 'tailwind-merge'
+          
+          export function cn(...inputs: ClassValue[]) {
+            return twMerge(clsx(inputs))
+          }
+          " > src/lib/utils.ts
+          
+          # Update root layout
+          echo "import './globals.css'
+          import { Inter } from 'next/font/google'
+          import Navbar from '@/components/Navbar'
+          import Footer from '@/components/Footer'
+          
+          const inter = Inter({ subsets: ['latin'] })
+          
+          export const metadata = {
+            title: 'CoinVotes',
+            description: 'Cryptocurrency Voting Platform',
+          }
+          
+          export default function RootLayout({
+            children,
+          }: {
+            children: React.ReactNode
+          }) {
+            return (
+              <html lang='en'>
+                <body className={inter.className + ' min-h-screen flex flex-col'}>
+                  <Navbar />
+                  <main className='flex-grow'>
+                    {children}
+                  </main>
+                  <Footer />
+                </body>
+              </html>
+            )
+          }
+          " > src/app/layout.tsx
+          
+          # Create globals.css
+          echo "@tailwind base;
+          @tailwind components;
+          @tailwind utilities;
+          
+          :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 221.2 83.2% 53.3%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96.1%;
+            --accent-foreground: 222.2 47.4% 11.2%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 221.2 83.2% 53.3%;
+            --radius: 0.5rem;
+          }
+          
+          .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --card: 222.2 84% 4.9%;
+            --card-foreground: 210 40% 98%;
+            --popover: 222.2 84% 4.9%;
+            --popover-foreground: 210 40% 98%;
+            --primary: 217.2 91.2% 59.8%;
+            --primary-foreground: 222.2 47.4% 11.2%;
+            --secondary: 217.2 32.6% 17.5%;
+            --secondary-foreground: 210 40% 98%;
+            --muted: 217.2 32.6% 17.5%;
+            --muted-foreground: 215 20.2% 65.1%;
+            --accent: 217.2 32.6% 17.5%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 217.2 32.6% 17.5%;
+            --input: 217.2 32.6% 17.5%;
+            --ring: 224.3 76.3% 48%;
+          }
+          " > src/app/globals.css
           
       - name: Build application
         run: |
