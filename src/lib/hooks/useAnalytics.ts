@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Analytics, logEvent, AnalyticsCallOptions } from 'firebase/analytics';
+import { Analytics, logEvent } from 'firebase/analytics';
 import { analytics } from '../firebase';
 
 export const useAnalytics = () => {
