@@ -34,14 +34,12 @@ jobs:
           cache: 'npm'
           
       - name: Clean install
-        working-directory: CoinVotesWeb
         run: |
           # Remove existing modules and lock files
           rm -rf node_modules
           rm -f package-lock.json
           
       - name: Install dependencies
-        working-directory: CoinVotesWeb
         run: |
           # Install base dependencies
           npm install
@@ -57,7 +55,6 @@ jobs:
           npm install @radix-ui/react-slot lucide-react clsx class-variance-authority tailwind-merge
           
       - name: Build application
-        working-directory: CoinVotesWeb
         run: |
           # Ensure proper Next.js configuration
           echo 'const path = require("path");
@@ -124,7 +121,6 @@ jobs:
           fi
           
       - name: Deploy with PM2
-        working-directory: CoinVotesWeb
         run: |
           if pm2 list | grep -q "coininsightweb"; then
             # Perform zero-downtime reload if process exists
