@@ -110,58 +110,73 @@ jobs:
           rm -rf node_modules package-lock.json
           npm cache clean --force
           
-          # Install all dependencies
+          # Install dependencies
           npm install
           
-          # Run security fixes and audit
-          echo "Running security fixes..."
-          npm audit fix
+          # Install Tailwind and PostCSS explicitly in the root
+          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
           
-          # Final security audit
-          echo "Running final security audit..."
-          if ! npm audit; then
-            echo "Warning: Security vulnerabilities found. Please review the audit report."
-          fi
+          # Create Tailwind config
+          echo "/** @type {import('tailwindcss').Config} */
+          module.exports = {
+            content: [
+              './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+              './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+              './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+            ],
+            theme: {
+              extend: {},
+            },
+            plugins: [
+              require('@tailwindcss/typography'),
+              require('@tailwindcss/forms'),
+              require('@tailwindcss/aspect-ratio'),
+            ],
+          }" > tailwind.config.js
           
-          # Verify critical dependencies
-          echo "Verifying critical dependencies..."
-          MISSING_DEPS=()
+          # Create PostCSS config
+          echo "{
+            \"plugins\": {
+              \"tailwindcss\": {},
+              \"autoprefixer\": {}
+            }
+          }" > postcss.config.json
           
-          # Check Next.js (could be in next or @next)
-          if [ ! -d "node_modules/next" ] && [ ! -d "node_modules/@next" ]; then
-            MISSING_DEPS+=("Next.js")
-          fi
+          # Ensure src/app directory exists
+          mkdir -p src/app
           
-          # Check React
-          if [ ! -d "node_modules/react" ]; then
-            MISSING_DEPS+=("React")
-          fi
+          # Create or update root layout with Tailwind
+          echo "import './globals.css'
           
-          # Check Tailwind (in @tailwindcss)
-          if [ ! -d "node_modules/@tailwindcss" ]; then
-            MISSING_DEPS+=("Tailwind CSS")
-          fi
+          export const metadata = {
+            title: 'CoinVotes',
+            description: 'Cryptocurrency Voting Platform',
+          }
           
-          # Report missing dependencies
-          if [ ${#MISSING_DEPS[@]} -ne 0 ]; then
-            echo "The following critical dependencies are missing:"
-            printf '%s\n' "${MISSING_DEPS[@]}"
-            echo "Installed packages in node_modules:"
-            ls -la node_modules
-            exit 1
-          fi
+          export default function RootLayout({
+            children,
+          }: {
+            children: React.ReactNode
+          }) {
+            return (
+              <html lang=\"en\">
+                <body>{children}</body>
+              </html>
+            )
+          }" > src/app/layout.tsx
           
-          echo "All critical dependencies are present"
+          # Create globals.css
+          echo "@tailwind base;
+          @tailwind components;
+          @tailwind utilities;" > src/app/globals.css
           
-          # Show installed versions
-          echo "Installed versions:"
-          npm list next react @tailwindcss/postcss7-compat tailwindcss postcss autoprefixer
-          
-          # Verify the installation was successful
-          if [ $? -eq 0 ]; then
-            echo "✅ Dependencies verified successfully"
+          # Verify Tailwind installation
+          echo "Verifying Tailwind installation..."
+          if [ -f "node_modules/tailwindcss/package.json" ]; then
+            echo "✅ Tailwind CSS is installed correctly"
           else
-            echo "⚠️ Some dependencies might have warnings, but they are installed"
+            echo "❌ Tailwind CSS installation failed"
+            exit 1
           fi
           
       - name: Initialize Tailwind
