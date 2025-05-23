@@ -83,21 +83,35 @@ jobs:
                 "build": "next build",
                 "start": "next start",
                 "lint": "next lint"
+              },
+              "dependencies": {
+                "next": "^15.2.3",
+                "react": "^18.2.0",
+                "react-dom": "^18.2.0",
+                "@radix-ui/react-slot": "^1.0.2",
+                "lucide-react": "^0.294.0",
+                "clsx": "^2.0.0",
+                "class-variance-authority": "^0.7.0",
+                "tailwind-merge": "^2.0.0"
+              },
+              "devDependencies": {
+                "tailwindcss": "^3.3.0",
+                "postcss": "^8.4.31",
+                "autoprefixer": "^10.4.16",
+                "@tailwindcss/typography": "^0.5.10",
+                "@tailwindcss/forms": "^0.5.7",
+                "@tailwindcss/aspect-ratio": "^0.4.2"
               }
             }' > package.json
           fi
           
-          # Install dependencies with latest secure versions
-          npm install --save next@15.2.3 react@18.2.0 react-dom@18.2.0
+          # Clean install
+          echo "Performing clean install..."
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
           
-          # Install dev dependencies with exact versions
-          npm install --save-dev tailwindcss@3.3.0 postcss@8.4.31 autoprefixer@10.4.16
-          
-          # Install additional Tailwind plugins with exact versions
-          npm install --save-dev @tailwindcss/typography@0.5.10 @tailwindcss/forms@0.5.7 @tailwindcss/aspect-ratio@0.4.2
-          
-          # Install UI dependencies with exact versions
-          npm install --save @radix-ui/react-slot@1.0.2 lucide-react@0.294.0 clsx@2.0.0 class-variance-authority@0.7.0 tailwind-merge@2.0.0
+          # Install all dependencies
+          npm install
           
           # Run security fixes and audit
           echo "Running security fixes..."
@@ -109,12 +123,19 @@ jobs:
             echo "Warning: Security vulnerabilities found. Please review the audit report."
           fi
           
-          # Verify installations
-          echo "Verifying installations..."
-          if ! npm list tailwindcss || ! npm list postcss || ! npm list autoprefixer; then
-            echo "Critical dependencies are missing"
+          # Verify critical dependencies
+          echo "Verifying critical dependencies..."
+          if [ ! -d "node_modules/next" ] || [ ! -d "node_modules/react" ] || [ ! -d "node_modules/tailwindcss" ]; then
+            echo "Critical dependencies are missing in node_modules"
+            ls -la node_modules
             exit 1
           fi
+          
+          # Show installed versions
+          echo "Installed versions:"
+          npm list next
+          npm list react
+          npm list tailwindcss
           
       - name: Initialize Tailwind
         run: |
