@@ -27,39 +27,3 @@ jobs:
           cd /var/www/coinvotesweb
           git pull origin master
       
-      - name: Install dependencies and build
-        working-directory: /var/www/coinvotesweb
-        run: |
-          npm ci
-          npm run build
-          
-      - name: Restart application
-        run: |
-          pm2 reload coininsightweb || pm2 start npm --name "coininsightweb" -- start
-          pm2 save
-          
-      - name: Configure nginx
-        run: |
-          if [ ! -f /etc/nginx/sites-available/coinvotesweb ]; then
-            sudo cp nginx_default.conf /etc/nginx/sites-available/coinvotesweb
-            sudo ln -s /etc/nginx/sites-available/coinvotesweb /etc/nginx/sites-enabled/
-          fi
-          sudo nginx -t && sudo systemctl reload nginx
-          
-      - name: Verify deployment
-        run: |
-          echo "Waiting for application to start..."
-          sleep 10
-          if curl -f http://localhost:5005 &>/dev/null; then
-            echo "✅ Application is running"
-          else
-            echo "❌ Application failed to start"
-            pm2 logs coininsightweb --lines 50
-            exit 1
-          fi
-          
-      - name: Cleanup
-        if: always()
-        run: |
-          rm -rf .next/cache
-          npm cache clean --force

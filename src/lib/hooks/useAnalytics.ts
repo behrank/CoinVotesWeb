@@ -10,8 +10,8 @@ export const useAnalytics = () => {
   useEffect(() => {
     // Initialize analytics when the component mounts
     if (analytics) {
-      analytics.then((analyticsInstance) => {
-        setAnalyticsInstance(analyticsInstance);
+      analytics.then((instance: Analytics | null) => {
+        setAnalyticsInstance(instance);
       });
     }
   }, []);
