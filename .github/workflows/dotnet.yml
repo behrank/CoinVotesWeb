@@ -69,63 +69,46 @@ jobs:
             plugins: [],
           }' > tailwind.config.js
           
-      - name: Setup package.json
-        run: |
-          echo '{
-            "name": "coinvotesweb",
-            "version": "0.1.0",
-            "private": true,
-            "scripts": {
-              "dev": "next dev",
-              "build": "next build",
-              "start": "next start",
-              "lint": "next lint"
-            },
-            "dependencies": {
-              "next": "13.5.6",
-              "react": "18.2.0",
-              "react-dom": "18.2.0",
-              "@radix-ui/react-slot": "1.0.2",
-              "lucide-react": "0.294.0",
-              "clsx": "2.0.0",
-              "class-variance-authority": "0.7.0",
-              "tailwind-merge": "2.0.0"
-            },
-            "devDependencies": {
-              "tailwindcss": "3.3.0",
-              "postcss": "8.4.31",
-              "autoprefixer": "10.4.16",
-              "@tailwindcss/typography": "0.5.10",
-              "@tailwindcss/forms": "0.5.7",
-              "@tailwindcss/aspect-ratio": "0.4.2"
-            }
-          }' > package.json
-          
       - name: Install dependencies
         run: |
           echo "Installing dependencies..."
-          # Clean npm cache and remove node_modules
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
+          # Create package.json if it doesn't exist
+          if [ ! -f package.json ]; then
+            echo '{
+              "name": "coinvotesweb",
+              "version": "0.1.0",
+              "private": true,
+              "scripts": {
+                "dev": "next dev",
+                "build": "next build",
+                "start": "next start",
+                "lint": "next lint"
+              }
+            }' > package.json
+          fi
           
-          # Install dependencies with clean slate
-          npm install --no-audit --no-fund
+          # Install dependencies with latest secure versions
+          npm install --save next@15.1.8 react@18.2.0 react-dom@18.2.0
           
-          # Verify critical dependencies
+          # Install dev dependencies with exact versions
+          npm install --save-dev tailwindcss@3.3.0 postcss@8.4.31 autoprefixer@10.4.16
+          
+          # Install additional Tailwind plugins with exact versions
+          npm install --save-dev @tailwindcss/typography@0.5.10 @tailwindcss/forms@0.5.7 @tailwindcss/aspect-ratio@0.4.2
+          
+          # Install UI dependencies with exact versions
+          npm install --save @radix-ui/react-slot@1.0.2 lucide-react@0.294.0 clsx@2.0.0 class-variance-authority@0.7.0 tailwind-merge@2.0.0
+          
+          # Run security audit
+          echo "Running security audit..."
+          npm audit
+          
+          # Verify installations
           echo "Verifying installations..."
-          if ! node -e "require('tailwindcss')" 2>/dev/null; then
-            echo "tailwindcss is missing"
+          if ! npm list tailwindcss || ! npm list postcss || ! npm list autoprefixer; then
+            echo "Critical dependencies are missing"
             exit 1
           fi
-          if ! node -e "require('postcss')" 2>/dev/null; then
-            echo "postcss is missing"
-            exit 1
-          fi
-          if ! node -e "require('autoprefixer')" 2>/dev/null; then
-            echo "autoprefixer is missing"
-            exit 1
-          fi
-          echo "All critical dependencies verified successfully"
           
       - name: Initialize Tailwind
         run: |
@@ -135,13 +118,39 @@ jobs:
       - name: Build application
         run: |
           echo "Starting build process..."
-          # Create next.config.js
+          # Create next.config.js with security headers
           echo 'const path = require("path");
           
           /** @type {import("next").NextConfig} */
           const nextConfig = {
             eslint: {
               ignoreDuringBuilds: true,
+            },
+            poweredByHeader: false,
+            async headers() {
+              return [
+                {
+                  source: "/:path*",
+                  headers: [
+                    {
+                      key: "X-Frame-Options",
+                      value: "DENY",
+                    },
+                    {
+                      key: "X-Content-Type-Options",
+                      value: "nosniff",
+                    },
+                    {
+                      key: "Referrer-Policy",
+                      value: "strict-origin-when-cross-origin",
+                    },
+                    {
+                      key: "X-XSS-Protection",
+                      value: "1; mode=block",
+                    },
+                  ],
+                },
+              ];
             },
             webpack: (config) => {
               config.resolve.alias = {
