@@ -37,9 +37,11 @@ const nextConfig = {
     return config;
   },
 
-  experimental: {
-    optimizeCss: true,
-  },
+  // Configure CSS optimization
+  optimizeFonts: true,
+  
+  // Configure minification
+  swcMinify: true,
 };
 
 module.exports = nextConfig; 
