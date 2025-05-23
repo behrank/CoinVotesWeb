@@ -29,7 +29,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-6">
             <Link 
               href="/#features" 
-              className="text-sm font-medium text-gray-400 transition-colors hover:text-white"
+              className="text-sm font-medium text-gray-200 transition-colors hover:text-white"
             >
               Features
             </Link>
