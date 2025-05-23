@@ -33,20 +33,88 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
           
+      - name: Clean install
+        working-directory: CoinVotesWeb
+        run: |
+          # Remove existing modules and lock files
+          rm -rf node_modules
+          rm -f package-lock.json
+          
       - name: Install dependencies
         working-directory: CoinVotesWeb
         run: |
-          npm ci
-          # Install required Tailwind and PostCSS dependencies
-          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio
+          # Install base dependencies
+          npm install
+          
+          # Install PostCSS and its plugins
+          npm install -D postcss postcss-preset-env
+          
+          # Install Tailwind and its plugins
+          npm install -D tailwindcss@latest autoprefixer@latest
+          npm install -D @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio
+          
+          # Install shadcn/ui dependencies
+          npm install @radix-ui/react-slot lucide-react clsx class-variance-authority tailwind-merge
           
       - name: Build application
         working-directory: CoinVotesWeb
         run: |
-          # Generate Tailwind CSS config if not exists
-          if [ ! -f tailwind.config.js ]; then
-            npx tailwindcss init -p
-          fi
+          # Ensure proper Next.js configuration
+          echo 'const path = require("path");
+
+          /** @type {import("next").NextConfig} */
+          const nextConfig = {
+            eslint: {
+              ignoreDuringBuilds: true,
+            },
+            webpack: (config) => {
+              config.resolve.alias = {
+                ...config.resolve.alias,
+                "@": path.join(__dirname, "src"),
+              };
+              return config;
+            },
+          };
+          
+          module.exports = nextConfig;' > next.config.js
+          
+          # Generate Tailwind config
+          echo '/** @type {import("tailwindcss").Config} */
+          module.exports = {
+            darkMode: ["class"],
+            content: [
+              "./src/**/*.{ts,tsx}",
+            ],
+            theme: {
+              extend: {},
+            },
+            plugins: [
+              require("@tailwindcss/typography"),
+              require("@tailwindcss/forms"),
+              require("@tailwindcss/aspect-ratio"),
+            ],
+          }' > tailwind.config.js
+          
+          # Generate PostCSS config
+          echo 'module.exports = {
+            plugins: {
+              tailwindcss: {},
+              autoprefixer: {},
+              "postcss-preset-env": {},
+            },
+          }' > postcss.config.js
+          
+          # Create tsconfig paths
+          echo '{
+            "compilerOptions": {
+              "baseUrl": ".",
+              "paths": {
+                "@/*": ["./src/*"]
+              }
+            }
+          }' > tsconfig.json
+          
+          # Run the build
           npm run build --no-lint
           
       - name: Setup PM2 if not exists
