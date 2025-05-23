@@ -72,23 +72,39 @@ jobs:
       - name: Install dependencies
         run: |
           echo "Installing dependencies..."
-          # Install Next.js and React
-          npm install next@latest react@latest react-dom@latest
+          # Create package.json if it doesn't exist
+          if [ ! -f package.json ]; then
+            echo '{
+              "name": "coinvotesweb",
+              "version": "0.1.0",
+              "private": true,
+              "scripts": {
+                "dev": "next dev",
+                "build": "next build",
+                "start": "next start",
+                "lint": "next lint"
+              }
+            }' > package.json
+          fi
           
-          # Install Tailwind CSS and its dependencies
-          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+          # Install dependencies with exact versions
+          npm install --save next@13.5.6 react@18.2.0 react-dom@18.2.0
           
-          # Install additional Tailwind plugins
-          npm install -D @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio
+          # Install dev dependencies with exact versions
+          npm install --save-dev tailwindcss@3.3.0 postcss@8.4.31 autoprefixer@10.4.16
           
-          # Install UI dependencies
-          npm install @radix-ui/react-slot lucide-react clsx class-variance-authority tailwind-merge
+          # Install additional Tailwind plugins with exact versions
+          npm install --save-dev @tailwindcss/typography@0.5.10 @tailwindcss/forms@0.5.7 @tailwindcss/aspect-ratio@0.4.2
+          
+          # Install UI dependencies with exact versions
+          npm install --save @radix-ui/react-slot@1.0.2 lucide-react@0.294.0 clsx@2.0.0 class-variance-authority@0.7.0 tailwind-merge@2.0.0
           
           # Verify installations
           echo "Verifying installations..."
-          npm list tailwindcss
-          npm list postcss
-          npm list autoprefixer
+          if ! npm list tailwindcss || ! npm list postcss || ! npm list autoprefixer; then
+            echo "Critical dependencies are missing"
+            exit 1
+          fi
           
       - name: Initialize Tailwind
         run: |
