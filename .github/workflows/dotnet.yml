@@ -35,30 +35,72 @@ jobs:
           
       - name: Clean install
         run: |
-          # Remove existing modules and lock files
+          echo "Cleaning previous installations..."
           rm -rf node_modules
           rm -f package-lock.json
           
+      - name: Create necessary directories
+        run: |
+          mkdir -p src/styles
+          
+      - name: Setup CSS configuration
+        run: |
+          # Create base CSS file
+          echo '@tailwind base;
+          @tailwind components;
+          @tailwind utilities;' > src/styles/globals.css
+          
+          # Create PostCSS config
+          echo '{
+            "plugins": {
+              "tailwindcss": {},
+              "autoprefixer": {}
+            }
+          }' > postcss.config.json
+          
+          # Create Tailwind config
+          echo 'module.exports = {
+            content: [
+              "./src/**/*.{js,ts,jsx,tsx}",
+            ],
+            theme: {
+              extend: {},
+            },
+            plugins: [],
+          }' > tailwind.config.js
+          
       - name: Install dependencies
         run: |
-          # Install base dependencies
-          npm install
+          echo "Installing dependencies..."
+          # Install Next.js and React
+          npm install next@latest react@latest react-dom@latest
           
-          # Install PostCSS and its plugins
-          npm install -D postcss postcss-preset-env
+          # Install Tailwind CSS and its dependencies
+          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
           
-          # Install Tailwind and its plugins
-          npm install -D tailwindcss@latest autoprefixer@latest
+          # Install additional Tailwind plugins
           npm install -D @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio
           
-          # Install shadcn/ui dependencies
+          # Install UI dependencies
           npm install @radix-ui/react-slot lucide-react clsx class-variance-authority tailwind-merge
+          
+          # Verify installations
+          echo "Verifying installations..."
+          npm list tailwindcss
+          npm list postcss
+          npm list autoprefixer
+          
+      - name: Initialize Tailwind
+        run: |
+          echo "Initializing Tailwind..."
+          npx tailwindcss init -p
           
       - name: Build application
         run: |
-          # Ensure proper Next.js configuration
+          echo "Starting build process..."
+          # Create next.config.js
           echo 'const path = require("path");
-
+          
           /** @type {import("next").NextConfig} */
           const nextConfig = {
             eslint: {
@@ -75,43 +117,7 @@ jobs:
           
           module.exports = nextConfig;' > next.config.js
           
-          # Generate Tailwind config
-          echo '/** @type {import("tailwindcss").Config} */
-          module.exports = {
-            darkMode: ["class"],
-            content: [
-              "./src/**/*.{ts,tsx}",
-            ],
-            theme: {
-              extend: {},
-            },
-            plugins: [
-              require("@tailwindcss/typography"),
-              require("@tailwindcss/forms"),
-              require("@tailwindcss/aspect-ratio"),
-            ],
-          }' > tailwind.config.js
-          
-          # Generate PostCSS config
-          echo 'module.exports = {
-            plugins: {
-              tailwindcss: {},
-              autoprefixer: {},
-              "postcss-preset-env": {},
-            },
-          }' > postcss.config.js
-          
-          # Create tsconfig paths
-          echo '{
-            "compilerOptions": {
-              "baseUrl": ".",
-              "paths": {
-                "@/*": ["./src/*"]
-              }
-            }
-          }' > tsconfig.json
-          
-          # Run the build
+          # Run build
           npm run build --no-lint
           
       - name: Setup PM2 if not exists
@@ -123,10 +129,8 @@ jobs:
       - name: Deploy with PM2
         run: |
           if pm2 list | grep -q "coininsightweb"; then
-            # Perform zero-downtime reload if process exists
             pm2 reload coininsightweb --update-env
           else
-            # Start new process if it doesn't exist
             pm2 start npm --name "coininsightweb" -- start
           fi
           pm2 save
