@@ -37,10 +37,16 @@ jobs:
         working-directory: CoinVotesWeb
         run: |
           npm ci
+          # Install required Tailwind and PostCSS dependencies
+          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio
           
       - name: Build application
         working-directory: CoinVotesWeb
         run: |
+          # Generate Tailwind CSS config if not exists
+          if [ ! -f tailwind.config.js ]; then
+            npx tailwindcss init -p
+          fi
           npm run build --no-lint
           
       - name: Setup PM2 if not exists
