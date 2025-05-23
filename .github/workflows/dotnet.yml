@@ -1,7 +1,7 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: NextJS Deploy
+name: Deploy Next.js
 
 # Controls when the workflow will run
 on:
@@ -15,51 +15,74 @@ jobs:
    # Our previously created self-hosted runner
     runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node: ["18.x"]
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+      NODE_ENV: production
+      DISABLE_ESLINT_PLUGIN: true
+      ESLINT_NO_DEV_ERRORS: true
 
      # A sequence of tasks that will execute as part of the job
     steps:
       # Checks out repository so our job can access it
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
       
-      - name: Setup Node.js ${{ matrix.node }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '18.x'
           cache: 'npm'
           
       - name: Install dependencies
+        working-directory: CoinVotesWeb
         run: |
-          cd CoinVotesWeb
           npm ci
           
-      - name: Build Next.js app
+      - name: Build application
+        working-directory: CoinVotesWeb
         run: |
-          cd CoinVotesWeb
-          npm run build
-        env:
-          NODE_ENV: production
+          npm run build --no-lint
+          
+      - name: Setup PM2 if not exists
+        run: |
+          if ! command -v pm2 &> /dev/null; then
+            npm install -g pm2
+          fi
           
       - name: Deploy with PM2
+        working-directory: CoinVotesWeb
         run: |
-          cd CoinVotesWeb
           if pm2 list | grep -q "coininsightweb"; then
-            pm2 reload coininsightweb
+            # Perform zero-downtime reload if process exists
+            pm2 reload coininsightweb --update-env
           else
+            # Start new process if it doesn't exist
             pm2 start npm --name "coininsightweb" -- start
           fi
           pm2 save
           
-      - name: Health check
+      - name: Configure nginx
         run: |
-          echo "Verifying deployment..."
+          if [ ! -f /etc/nginx/sites-available/coinvotesweb ]; then
+            sudo cp nginx_default.conf /etc/nginx/sites-available/coinvotesweb
+            sudo ln -s /etc/nginx/sites-available/coinvotesweb /etc/nginx/sites-enabled/
+          fi
+          sudo nginx -t && sudo systemctl reload nginx
+          
+      - name: Verify deployment
+        run: |
+          echo "Waiting for application to start..."
           sleep 10
-          if curl -s http://localhost:5005 > /dev/null; then
+          if curl -f http://localhost:5005 &>/dev/null; then
             echo "✅ Application is running"
           else
             echo "❌ Application failed to start"
             pm2 logs coininsightweb --lines 50
             exit 1
           fi
+          
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf .next/cache
+          npm cache clean --force

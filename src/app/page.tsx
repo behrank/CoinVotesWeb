@@ -111,7 +111,7 @@ export default function Home() {
                       <CardHeader className="px-0">
                         <CardTitle className="text-3xl font-bold mb-4 text-white">Live Signals</CardTitle>
                         <CardDescription className="text-lg text-gray-400">
-                          Track cryptocurrencies and catch instant movement changes in advance. Don't miss potential buying and selling opportunities.
+                          Track cryptocurrencies and catch instant movement changes in advance. Don&apos;t miss potential buying and selling opportunities.
                         </CardDescription>
                       </CardHeader>
                     </div>
@@ -162,7 +162,7 @@ export default function Home() {
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold mb-6 text-white">FAQ</h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Find answers to commonly asked questions about CoinInsight's features and functionality
+                Find answers to commonly asked questions about CoinInsight&apos;s features and functionality
               </p>
             </div>
             
@@ -213,7 +213,7 @@ export default function Home() {
                 <div className="space-y-4">
                   <h3 className="text-white font-medium text-xl">I have received a signal but I do not know the meaning of it?</h3>
                   <p className="text-gray-400 leading-relaxed">
-                    A signal contains two main pieces of information. The first is the price movement ("Buy" or "Sell") and its probability of continuing. In some cases, the algorithm may generate both buy and sell signals in short intervals. This means that, depending on the probability, there is a possibility of horizontal price movement. A high probability indicates high volatility.
+                    A signal contains two main pieces of information. The first is the price movement (&ldquo;Buy&rdquo; or &ldquo;Sell&rdquo;) and its probability of continuing. In some cases, the algorithm may generate both buy and sell signals in short intervals. This means that, depending on the probability, there is a possibility of horizontal price movement. A high probability indicates high volatility.
                   </p>
                   <p className="text-gray-400 leading-relaxed">
                     The important point to remember here is that these signals are generated to help you understand market movements. We do not recommend making trades based solely on these signals. Do not neglect to perform the necessary technical analyses when trading cryptocurrencies.

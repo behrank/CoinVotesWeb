@@ -18,7 +18,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl font-semibold mb-3">1. Introduction</h2>
               <p className="text-gray-400">
-                CoinInsight Apple Applications may be downloaded from the App Store, which is operated and owned by Apple Inc. and other companies within its group ("Apple"). Our Android Applications may be downloaded from Google Play, which is owned and operated by Google Inc. and other companies within its group ("Google"). We develop Our Products for informational purposes only.
+                CoinInsight Apple Applications may be downloaded from the App Store, which is operated and owned by Apple Inc. and other companies within its group (&ldquo;Apple&rdquo;). Our Android Applications may be downloaded from Google Play, which is owned and operated by Google Inc. and other companies within its group (&ldquo;Google&rdquo;). We develop Our Products for informational purposes only.
               </p>
               <p className="text-gray-400 mt-2 font-semibold">
                 You must ALWAYS consult your financial advisor before trading using any information provided by our apps. By agreeing to these Terms and Conditions you confirm that you are solely responsible for your state of finances.
@@ -38,7 +38,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl font-semibold mb-3">3. Intellectual Property</h2>
               <p className="text-gray-400">
-                The texts, graphics, designs, logos, button icons, images, data compilations and information ("Content") contained in Our Products and Services are Intellectual Property of CoinInsight (or belongs to it) and are protected by copyright laws. All logos and trademarks displayed in Our Products and Services are registered trademarks or trademarks of CoinInsight. No trademarks may be used without prior written consent of CoinInsight except to identify the products or services associated therewith. Our Products and all related software, and all patent rights (including patent applications and disclosures), copyrights, trade secrets, know-how, and any other intellectual property rights therein or relating thereto (including derivative works), are and shall remain the exclusive property of CoinInsight, LLC or its licensors.
+                The texts, graphics, designs, logos, button icons, images, data compilations and information (&ldquo;Content&rdquo;) contained in Our Products and Services are Intellectual Property of CoinInsight (or belongs to it) and are protected by copyright laws. All logos and trademarks displayed in Our Products and Services are registered trademarks or trademarks of CoinInsight. No trademarks may be used without prior written consent of CoinInsight except to identify the products or services associated therewith. Our Products and all related software, and all patent rights (including patent applications and disclosures), copyrights, trade secrets, know-how, and any other intellectual property rights therein or relating thereto (including derivative works), are and shall remain the exclusive property of CoinInsight, LLC or its licensors.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function TermsOfService() {
                 <li>The overall financial benefits you might derive from using our services and products or POC which incorporates our services and products</li>
               </ul>
               <p className="text-gray-400 mt-2">
-                The use of any software or hardware offered by CoinInsight is no substitute for the consultation by the user of a specialized doctor. Our Services and Products are provided "as is" without any warranties, expressed or implied, including but not limited to the implied warranties of merchantability, used for a particular purpose, or non-infringement.
+                The use of any software or hardware offered by CoinInsight is no substitute for the consultation by the user of a specialized doctor. Our Services and Products are provided &ldquo;as is&rdquo; without any warranties, expressed or implied, including but not limited to the implied warranties of merchantability, used for a particular purpose, or non-infringement.
               </p>
             </div>
 
@@ -101,7 +101,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl font-semibold mb-3">9. Territory</h2>
               <p className="text-gray-400">
-                The term "Territory" means the United States its territories possessions, North America, the United Kingdom and Australia. Any additional Territories shall be subject to mutual approval.
+                The term &ldquo;Territory&rdquo; means the United States its territories possessions, North America, the United Kingdom and Australia. Any additional Territories shall be subject to mutual approval.
               </p>
             </div>
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Navbar } from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -18,7 +18,7 @@ export default function ContactPage() {
             <div className="text-center mb-12">
               <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
               <p className="text-gray-400 text-lg">
-                We're here to help with any questions you might have
+                We&apos;ll get back to you as soon as possible
               </p>
             </div>
 

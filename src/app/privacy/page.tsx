@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold mb-3">2. Children's Privacy and Age Requirements</h2>
+              <h2 className="text-xl font-semibold mb-3">2. Children&apos;s Privacy and Age Requirements</h2>
               <p className="text-gray-400">
                 CoinInsight is not intended for children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If we become aware that we have collected personal data from a child under 13 without verification of parental consent, we will take steps to remove that information from our servers.
               </p>
