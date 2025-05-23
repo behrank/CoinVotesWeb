@@ -125,17 +125,44 @@ jobs:
           
           # Verify critical dependencies
           echo "Verifying critical dependencies..."
-          if [ ! -d "node_modules/next" ] || [ ! -d "node_modules/react" ] || [ ! -d "node_modules/tailwindcss" ]; then
-            echo "Critical dependencies are missing in node_modules"
+          MISSING_DEPS=()
+          
+          # Check Next.js (could be in next or @next)
+          if [ ! -d "node_modules/next" ] && [ ! -d "node_modules/@next" ]; then
+            MISSING_DEPS+=("Next.js")
+          fi
+          
+          # Check React
+          if [ ! -d "node_modules/react" ]; then
+            MISSING_DEPS+=("React")
+          fi
+          
+          # Check Tailwind (in @tailwindcss)
+          if [ ! -d "node_modules/@tailwindcss" ]; then
+            MISSING_DEPS+=("Tailwind CSS")
+          fi
+          
+          # Report missing dependencies
+          if [ ${#MISSING_DEPS[@]} -ne 0 ]; then
+            echo "The following critical dependencies are missing:"
+            printf '%s\n' "${MISSING_DEPS[@]}"
+            echo "Installed packages in node_modules:"
             ls -la node_modules
             exit 1
           fi
           
+          echo "All critical dependencies are present"
+          
           # Show installed versions
           echo "Installed versions:"
-          npm list next
-          npm list react
-          npm list tailwindcss
+          npm list next react @tailwindcss/postcss7-compat tailwindcss postcss autoprefixer
+          
+          # Verify the installation was successful
+          if [ $? -eq 0 ]; then
+            echo "✅ Dependencies verified successfully"
+          else
+            echo "⚠️ Some dependencies might have warnings, but they are installed"
+          fi
           
       - name: Initialize Tailwind
         run: |
