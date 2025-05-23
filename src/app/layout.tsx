@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
+import { useAnalytics } from "@/lib/hooks/useAnalytics";
 
 const openSans = Open_Sans({ 
   subsets: ["latin"],
@@ -18,6 +19,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Initialize analytics
+  useAnalytics();
+
   return (
     <html lang="en" className="dark">
       <body style={{ backgroundColor: '#070707' }} className={`${openSans.className} min-h-screen bg-background text-foreground antialiased flex flex-col`}>
