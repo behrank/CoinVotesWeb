@@ -96,11 +96,15 @@ jobs:
             npm install --no-audit --no-fund --no-optional
           fi
           
-          # Verify package installation
-          if [ ! -d "node_modules/tailwindcss" ]; then
-            echo "Installing Tailwind CSS and related packages..."
-            npm install -D tailwindcss@3.3.0 postcss@8.4.31 autoprefixer@10.4.16 --no-audit --no-fund
-          fi
+          # Verify and install Tailwind packages
+          echo "Installing Tailwind CSS and plugins..."
+          npm install -D tailwindcss@3.3.0 \
+                     postcss@8.4.31 \
+                     autoprefixer@10.4.16 \
+                     @tailwindcss/typography@0.5.10 \
+                     @tailwindcss/forms@0.5.7 \
+                     @tailwindcss/aspect-ratio@0.4.2 \
+                     --no-audit --no-fund
           
           # Create necessary config files
           echo "/** @type {import('tailwindcss').Config} */
@@ -120,51 +124,28 @@ jobs:
             ],
           }" > tailwind.config.js
           
+          # Create PostCSS config
           echo "module.exports = {
             plugins: {
-              tailwindcss: {},
-              autoprefixer: {},
-            },
+              'tailwindcss': require('tailwindcss'),
+              'autoprefixer': require('autoprefixer'),
+            }
           }" > postcss.config.js
           
-          # Setup Next.js app structure
-          mkdir -p src/app
+          # Verify installations
+          echo "Verifying package installations..."
+          for package in "tailwindcss" "@tailwindcss/typography" "@tailwindcss/forms" "@tailwindcss/aspect-ratio" "postcss" "autoprefixer"; do
+            if [ ! -d "node_modules/$package" ]; then
+              echo "❌ $package is missing, attempting to reinstall..."
+              npm install -D "$package" --no-audit --no-fund
+            fi
+          done
           
-          # Create globals.css if it doesn't exist
-          if [ ! -f src/app/globals.css ]; then
-            echo "@tailwind base;
-            @tailwind components;
-            @tailwind utilities;" > src/app/globals.css
-          fi
-          
-          # Create root layout if it doesn't exist
-          if [ ! -f src/app/layout.tsx ]; then
-            echo "import './globals.css'
-            
-            export const metadata = {
-              title: 'CoinVotes',
-              description: 'Cryptocurrency Voting Platform',
-            }
-            
-            export default function RootLayout({
-              children,
-            }: {
-              children: React.ReactNode
-            }) {
-              return (
-                <html lang=\"en\">
-                  <body>{children}</body>
-                </html>
-              )
-            }" > src/app/layout.tsx
-          fi
-          
-          # Verify final installation
-          if [ -f "node_modules/tailwindcss/package.json" ]; then
-            echo "✅ Tailwind CSS is installed correctly"
-            npm list tailwindcss postcss autoprefixer
+          # Final verification
+          if npm list tailwindcss @tailwindcss/typography @tailwindcss/forms @tailwindcss/aspect-ratio postcss autoprefixer; then
+            echo "✅ All Tailwind packages installed correctly"
           else
-            echo "❌ Tailwind CSS installation failed"
+            echo "❌ Some Tailwind packages are missing"
             exit 1
           fi
           
