@@ -53,66 +53,78 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
             ${{ runner.os }}-nextjs-
             
+      - name: Setup project configuration
+        run: |
+          # Create tsconfig.json for proper module resolution
+          echo '{
+            "compilerOptions": {
+              "target": "es5",
+              "lib": ["dom", "dom.iterable", "esnext"],
+              "allowJs": true,
+              "skipLibCheck": true,
+              "strict": true,
+              "noEmit": true,
+              "esModuleInterop": true,
+              "module": "esnext",
+              "moduleResolution": "bundler",
+              "resolveJsonModule": true,
+              "isolatedModules": true,
+              "jsx": "preserve",
+              "incremental": true,
+              "plugins": [
+                {
+                  "name": "next"
+                }
+              ],
+              "paths": {
+                "@/*": ["./src/*"]
+              }
+            },
+            "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+            "exclude": ["node_modules"]
+          }' > tsconfig.json
+
+          # Create package.json with exact versions
+          echo '{
+            "name": "coinvotesweb",
+            "version": "0.1.0",
+            "private": true,
+            "scripts": {
+              "dev": "next dev",
+              "build": "next build",
+              "start": "next start",
+              "lint": "next lint"
+            }
+          }' > package.json
+
       - name: Install dependencies
         run: |
           echo "Installing dependencies..."
-          # Create package.json if it doesn't exist
-          if [ ! -f package.json ]; then
-            echo '{
-              "name": "coinvotesweb",
-              "version": "0.1.0",
-              "private": true,
-              "scripts": {
-                "dev": "next dev",
-                "build": "next build",
-                "start": "next start",
-                "lint": "next lint"
-              },
-              "dependencies": {
-                "next": "^15.2.3",
-                "react": "^18.2.0",
-                "react-dom": "^18.2.0",
-                "@radix-ui/react-slot": "^1.0.2",
-                "lucide-react": "^0.294.0",
-                "clsx": "^2.0.0",
-                "class-variance-authority": "^0.7.0",
-                "tailwind-merge": "^2.0.0"
-              },
-              "devDependencies": {
-                "tailwindcss": "3.3.0",
-                "postcss": "8.4.31",
-                "autoprefixer": "10.4.16",
-                "@tailwindcss/typography": "0.5.10",
-                "@tailwindcss/forms": "0.5.7",
-                "@tailwindcss/aspect-ratio": "0.4.2"
-              }
-            }' > package.json
-          fi
-          
-          if [ ! -f "node_modules/.package-lock.json" ]; then
-            echo "Clean installing dependencies..."
-            rm -rf node_modules package-lock.json
-            npm cache clean --force
-            npm install --no-audit --no-fund --no-optional
-          fi
-          
-          # Verify and install Tailwind packages
-          echo "Installing Tailwind CSS and plugins..."
-          npm install -D tailwindcss@3.3.0 \
-                     postcss@8.4.31 \
-                     autoprefixer@10.4.16 \
-                     @tailwindcss/typography@0.5.10 \
-                     @tailwindcss/forms@0.5.7 \
-                     @tailwindcss/aspect-ratio@0.4.2 \
-                     --no-audit --no-fund
-          
-          # Create necessary config files
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
+
+          # Install Next.js and React
+          npm install next@13.5.6 react@18.2.0 react-dom@18.2.0
+
+          # Install Tailwind and its dependencies
+          npm install -D tailwindcss@3.3.0 postcss@8.4.31 autoprefixer@10.4.16
+
+          # Install UI dependencies
+          npm install @radix-ui/react-slot@1.0.2 lucide-react@0.294.0 clsx@2.0.0 class-variance-authority@0.7.0 tailwind-merge@2.0.0
+
+          # Install Tailwind plugins
+          npm install -D @tailwindcss/typography@0.5.10 @tailwindcss/forms@0.5.7 @tailwindcss/aspect-ratio@0.4.2
+
+      - name: Create project structure
+        run: |
+          # Create necessary directories
+          mkdir -p src/app src/components/ui src/lib
+
+          # Create Tailwind config
           echo "/** @type {import('tailwindcss').Config} */
           module.exports = {
             content: [
-              './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-              './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-              './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+              './src/**/*.{js,ts,jsx,tsx,mdx}'
             ],
             theme: {
               extend: {},
@@ -123,7 +135,7 @@ jobs:
               require('@tailwindcss/aspect-ratio'),
             ],
           }" > tailwind.config.js
-          
+
           # Create PostCSS config
           echo "module.exports = {
             plugins: {
@@ -131,33 +143,38 @@ jobs:
               autoprefixer: {},
             }
           }" > postcss.config.js
-          
-          # Create necessary directories
-          mkdir -p src/app src/components/ui src/styles
-          
-          # Create UI components
+
+          # Create utils.ts
+          echo "import { type ClassValue, clsx } from 'clsx'
+          import { twMerge } from 'tailwind-merge'
+
+          export function cn(...inputs: ClassValue[]) {
+            return twMerge(clsx(inputs))
+          }" > src/lib/utils.ts
+
+          # Create components
           echo "import * as React from 'react'
           import { Slot } from '@radix-ui/react-slot'
           import { cva, type VariantProps } from 'class-variance-authority'
           import { cn } from '@/lib/utils'
-          
+
           const buttonVariants = cva(
-            'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+            'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
             {
               variants: {
                 variant: {
-                  default: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
-                  destructive: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
-                  outline: 'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground',
-                  secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+                  default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+                  destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+                  outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+                  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
                   ghost: 'hover:bg-accent hover:text-accent-foreground',
                   link: 'text-primary underline-offset-4 hover:underline',
                 },
                 size: {
-                  default: 'h-9 px-4 py-2',
-                  sm: 'h-8 rounded-md px-3 text-xs',
-                  lg: 'h-10 rounded-md px-8',
-                  icon: 'h-9 w-9',
+                  default: 'h-10 px-4 py-2',
+                  sm: 'h-9 rounded-md px-3',
+                  lg: 'h-11 rounded-md px-8',
+                  icon: 'h-10 w-10',
                 },
               },
               defaultVariants: {
@@ -166,13 +183,13 @@ jobs:
               },
             }
           )
-          
+
           export interface ButtonProps
             extends React.ButtonHTMLAttributes<HTMLButtonElement>,
               VariantProps<typeof buttonVariants> {
             asChild?: boolean
           }
-          
+
           const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ({ className, variant, size, asChild = false, ...props }, ref) => {
               const Comp = asChild ? Slot : 'button'
@@ -186,42 +203,32 @@ jobs:
             }
           )
           Button.displayName = 'Button'
-          
-          export { Button, buttonVariants }
-          " > src/components/ui/button.tsx
-          
+
+          export { Button, buttonVariants }" > src/components/ui/button.tsx
+
           # Create Card component
           echo "import * as React from 'react'
           import { cn } from '@/lib/utils'
-          
-          const Card = React.forwardRef<
-            HTMLDivElement,
-            React.HTMLAttributes<HTMLDivElement>
-          >(({ className, ...props }, ref) => (
-            <div
-              ref={ref}
-              className={cn(
-                'rounded-xl border bg-card text-card-foreground shadow',
-                className
-              )}
-              {...props}
-            />
-          ))
-          Card.displayName = 'Card'
-          
-          export { Card }
-          " > src/components/ui/card.tsx
-          
+
+          const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+            ({ className, ...props }, ref) => (
+              <div
+                ref={ref}
+                className={cn('rounded-lg border bg-card text-card-foreground shadow-sm', className)}
+                {...props}
+              />
+            )
+          )
+          Card.displayName = 'Card'" > src/components/ui/card.tsx
+
           # Create Navbar component
           echo "import Link from 'next/link'
           import { Button } from '@/components/ui/button'
-          
+
           export default function Navbar() {
             return (
               <nav className='flex items-center justify-between p-4 bg-white shadow-sm'>
-                <Link href='/' className='text-xl font-bold'>
-                  CoinVotes
-                </Link>
+                <Link href='/' className='text-xl font-bold'>CoinVotes</Link>
                 <div className='flex gap-4'>
                   <Link href='/'>
                     <Button variant='ghost'>Home</Button>
@@ -232,9 +239,8 @@ jobs:
                 </div>
               </nav>
             )
-          }
-          " > src/components/Navbar.tsx
-          
+          }" > src/components/Navbar.tsx
+
           # Create Footer component
           echo "export default function Footer() {
             return (
@@ -242,32 +248,26 @@ jobs:
                 <p>© 2024 CoinVotes. All rights reserved.</p>
               </footer>
             )
-          }
-          " > src/components/Footer.tsx
-          
-          # Create utils
-          mkdir -p src/lib
-          echo "import { clsx, type ClassValue } from 'clsx'
-          import { twMerge } from 'tailwind-merge'
-          
-          export function cn(...inputs: ClassValue[]) {
-            return twMerge(clsx(inputs))
-          }
-          " > src/lib/utils.ts
-          
-          # Update root layout
+          }" > src/components/Footer.tsx
+
+          # Create globals.css
+          echo "@tailwind base;
+          @tailwind components;
+          @tailwind utilities;" > src/app/globals.css
+
+          # Create root layout
           echo "import './globals.css'
           import { Inter } from 'next/font/google'
           import Navbar from '@/components/Navbar'
           import Footer from '@/components/Footer'
-          
+
           const inter = Inter({ subsets: ['latin'] })
-          
+
           export const metadata = {
             title: 'CoinVotes',
             description: 'Cryptocurrency Voting Platform',
           }
-          
+
           export default function RootLayout({
             children,
           }: {
@@ -277,67 +277,22 @@ jobs:
               <html lang='en'>
                 <body className={inter.className + ' min-h-screen flex flex-col'}>
                   <Navbar />
-                  <main className='flex-grow'>
-                    {children}
-                  </main>
+                  <main className='flex-grow'>{children}</main>
                   <Footer />
                 </body>
               </html>
             )
-          }
-          " > src/app/layout.tsx
-          
-          # Create globals.css
-          echo "@tailwind base;
-          @tailwind components;
-          @tailwind utilities;
-          
-          :root {
-            --background: 0 0% 100%;
-            --foreground: 222.2 84% 4.9%;
-            --card: 0 0% 100%;
-            --card-foreground: 222.2 84% 4.9%;
-            --popover: 0 0% 100%;
-            --popover-foreground: 222.2 84% 4.9%;
-            --primary: 221.2 83.2% 53.3%;
-            --primary-foreground: 210 40% 98%;
-            --secondary: 210 40% 96.1%;
-            --secondary-foreground: 222.2 47.4% 11.2%;
-            --muted: 210 40% 96.1%;
-            --muted-foreground: 215.4 16.3% 46.9%;
-            --accent: 210 40% 96.1%;
-            --accent-foreground: 222.2 47.4% 11.2%;
-            --destructive: 0 84.2% 60.2%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 214.3 31.8% 91.4%;
-            --input: 214.3 31.8% 91.4%;
-            --ring: 221.2 83.2% 53.3%;
-            --radius: 0.5rem;
-          }
-          
-          .dark {
-            --background: 222.2 84% 4.9%;
-            --foreground: 210 40% 98%;
-            --card: 222.2 84% 4.9%;
-            --card-foreground: 210 40% 98%;
-            --popover: 222.2 84% 4.9%;
-            --popover-foreground: 210 40% 98%;
-            --primary: 217.2 91.2% 59.8%;
-            --primary-foreground: 222.2 47.4% 11.2%;
-            --secondary: 217.2 32.6% 17.5%;
-            --secondary-foreground: 210 40% 98%;
-            --muted: 217.2 32.6% 17.5%;
-            --muted-foreground: 215 20.2% 65.1%;
-            --accent: 217.2 32.6% 17.5%;
-            --accent-foreground: 210 40% 98%;
-            --destructive: 0 62.8% 30.6%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 217.2 32.6% 17.5%;
-            --input: 217.2 32.6% 17.5%;
-            --ring: 224.3 76.3% 48%;
-          }
-          " > src/app/globals.css
-          
+          }" > src/app/layout.tsx
+
+          # Create page.tsx
+          echo "export default function Home() {
+            return (
+              <div className='container mx-auto p-4'>
+                <h1 className='text-4xl font-bold'>Welcome to CoinVotes</h1>
+              </div>
+            )
+          }" > src/app/page.tsx
+
       - name: Build application
         run: |
           echo "Starting build process..."
