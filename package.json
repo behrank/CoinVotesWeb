@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .next .turbo .npm-cache",
+    "clean:all": "npm run clean && rm -rf node_modules",
+    "build:cache": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "dev:cache": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "install:cache": "npm ci --prefer-offline --no-audit"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

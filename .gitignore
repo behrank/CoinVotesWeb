@@ -111,4 +111,14 @@ coverage
 *.lcov
 
 # nyc test coverage
-.nyc_output 
+.nyc_output
+
+# Cache directories
+.npm-cache/
+.next-cache/
+.turbo
+.vercel
+tsconfig.tsbuildinfo
+
+# Exclude example environment variables
+!.env.example 
