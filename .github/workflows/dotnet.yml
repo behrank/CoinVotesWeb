@@ -167,7 +167,42 @@ jobs:
       - name: Initialize Tailwind
         run: |
           echo "Initializing Tailwind..."
-          npx tailwindcss init -p
+          # Create Tailwind config if it doesn't exist
+          if [ ! -f tailwind.config.js ]; then
+            echo "/** @type {import('tailwindcss').Config} */
+            module.exports = {
+              content: [
+                './src/**/*.{js,ts,jsx,tsx,mdx}',
+                './components/**/*.{js,ts,jsx,tsx,mdx}',
+              ],
+              theme: {
+                extend: {},
+              },
+              plugins: [
+                require('@tailwindcss/typography'),
+                require('@tailwindcss/forms'),
+                require('@tailwindcss/aspect-ratio'),
+              ],
+            }" > tailwind.config.js
+          fi
+
+          # Create PostCSS config if it doesn't exist
+          if [ ! -f postcss.config.js ]; then
+            echo "module.exports = {
+              plugins: {
+                tailwindcss: {},
+                autoprefixer: {},
+              },
+            }" > postcss.config.js
+          fi
+
+          # Create or update CSS file
+          mkdir -p src/styles
+          echo "@tailwind base;
+          @tailwind components;
+          @tailwind utilities;" > src/styles/globals.css
+
+          echo "✅ Tailwind initialization completed"
           
       - name: Build application
         run: |
