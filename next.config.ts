@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import type { Configuration as WebpackConfig } from 'webpack';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -16,7 +17,7 @@ const nextConfig: NextConfig = {
   },
 
   // Configure webpack for better caching
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config: WebpackConfig, { dev, isServer }: { dev: boolean; isServer: boolean }) => {
     // Optimize CSS
     if (!dev && !isServer) {
       config.optimization = {
@@ -33,19 +34,6 @@ const nextConfig: NextConfig = {
               name: 'commons',
               chunks: 'all',
               minChunks: 2,
-              reuseExistingChunk: true,
-            },
-            lib: {
-              test: /[\\/]node_modules[\\/]/,
-              name(module: any) {
-                const packageName = module.context.match(
-                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                )[1];
-                return `npm.${packageName.replace('@', '')}`;
-              },
-              chunks: 'all',
-              priority: 10,
-              enforce: true,
               reuseExistingChunk: true,
             },
           },
